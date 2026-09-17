@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#c2410c">
+<title>belivery — Buy & Sell Near You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Azeret+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf7f5; --surface:#ffffff; --surface-2:#f4efeb;
+    --border:rgba(0,0,0,.09); --border-strong:rgba(0,0,0,.16);
+    --text:#26201c; --text-dim:#7a6f66;
+    --accent:#c2410c; --accent-dim:#fdeee5; --accent-deep:#9a3412;
+    --sage:#65a30d; --sage-dim:#eef5e4;
+    --amber:#b45309; --amber-dim:#fdf3e3;
+    --rose:#be123c; --rose-dim:#fde8ee;
+    --radius:14px;
+    --font-body:'Plus Jakarta Sans',system-ui,sans-serif;
+    --font-mono:'Azeret Mono',ui-monospace,monospace;
+    --nav-h:64px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--font-body); background:var(--bg); color:var(--text);
+    min-height:100dvh; font-size:15px; line-height:1.5;
+    padding-bottom:calc(var(--nav-h) + env(safe-area-inset-bottom,0px));
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px}
+
+  /* ---------- top header ---------- */
+  header.topbar{
+    position:sticky; top:0; z-index:40; background:rgba(250,247,245,.92);
+    backdrop-filter:blur(8px); border-bottom:1px solid var(--border);
+  }
+  .topbar-inner{display:flex;align-items:center;gap:10px;padding:12px 0}
+  .logo{display:flex;align-items:baseline;gap:2px;font-weight:800;font-size:22px;letter-spacing:-.5px;color:var(--text)}
+  .logo .b1{color:var(--accent)}
+  .logo .tld{color:var(--sage);font-family:var(--font-mono);font-weight:500;font-size:16px;letter-spacing:0}
+  .logo .dot{width:7px;height:7px;border-radius:50%;background:var(--sage);display:inline-block;margin:0 3px 2px}
+  .tagline{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);margin-left:auto;text-transform:uppercase;letter-spacing:.5px}
+
+  /* ---------- demo banner ---------- */
+  .demo-banner{
+    background:var(--amber-dim); border-bottom:1px solid rgba(180,83,9,.2);
+    font-size:12px; color:var(--amber); padding:8px 14px; text-align:center;
+    font-weight:600;
+  }
+  .demo-banner b{font-weight:800}
+
+  /* ---------- search ---------- */
+  .search-row{padding:12px 0 4px}
+  .search-box{
+    display:flex;align-items:center;gap:10px;background:var(--surface);
+    border:1px solid var(--border-strong);border-radius:12px;padding:11px 14px;
+  }
+  .search-box svg{flex:none;opacity:.45}
+  .search-box input{border:none;outline:none;flex:1;min-width:0;font:inherit;color:var(--text);background:transparent}
+  .search-box input::placeholder{color:var(--text-dim)}
+
+  /* ---------- category chips ---------- */
+  .chips{display:flex;gap:8px;overflow-x:auto;padding:12px 0 4px;scrollbar-width:none;-ms-overflow-style:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{
+    flex:none;font:inherit;font-size:13px;font-weight:600;color:var(--text-dim);
+    background:var(--surface);border:1px solid var(--border-strong);
+    border-radius:999px;padding:7px 14px;cursor:pointer;transition:all .15s;
+    font-family:var(--font-body);
+  }
+  .chip.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+  .loc-bar{display:flex;align-items:center;gap:8px;width:100%;background:var(--surface);border:1px solid var(--border-strong);border-radius:12px;padding:11px 14px;margin:12px 0 2px;cursor:pointer;font:inherit;font-size:14px;font-weight:600;color:var(--text);text-align:left;transition:transform .12s}
+  .loc-bar:active{transform:scale(.98)}
+  .loc-bar svg{flex:none;color:var(--accent)}
+  .loc-change{margin-left:auto;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);font-weight:500}
+
+  /* ---------- section label ---------- */
+  .section-label{
+    display:flex;align-items:center;gap:8px;margin:18px 0 10px;
+    font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-dim);
+  }
+  .section-label::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--accent)}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:20px;margin-top:14px;position:relative;overflow:hidden;
+  }
+  .hero::after{content:"";position:absolute;right:-40px;top:-40px;width:140px;height:140px;border-radius:50%;background:var(--accent-dim);opacity:.7}
+  .hero h1{font-size:22px;font-weight:800;line-height:1.25;letter-spacing:-.3px;max-width:85%;position:relative;z-index:1}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero p{color:var(--text-dim);font-size:13.5px;margin-top:6px;max-width:88%;position:relative;z-index:1}
+  .hero .cta{
+    margin-top:14px;display:inline-flex;align-items:center;gap:8px;
+    background:var(--accent);color:#fff;font-weight:700;font-size:14px;
+    border:none;border-radius:10px;padding:11px 18px;cursor:pointer;position:relative;z-index:1;
+    transition:transform .12s;
+  }
+  .hero .cta:active{transform:scale(.97)}
+
+  /* ---------- product grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px}
+  @media(min-width:460px){.grid{grid-template-columns:repeat(3,1fr)}}
+  .card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    overflow:hidden;cursor:pointer;transition:transform .12s,box-shadow .12s;
+    animation:fadeUp .35s ease both;
+  }
+  .card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(38,32,28,.09)}
+  .card .thumb{
+    height:110px;display:flex;align-items:center;justify-content:center;font-size:44px;
+    background:var(--surface-2);border-bottom:1px solid var(--border);
+    background-size:cover;background-position:center;
+  }
+  .card .body{padding:10px 11px 12px}
+  .card .price{font-family:var(--font-mono);font-weight:600;font-size:15px;color:var(--accent-deep)}
+  .card .title{
+    font-size:13px;font-weight:600;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .card .meta{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text-dim);margin-top:5px}
+  .card .badge-own{
+    display:inline-block;font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:.5px;
+    background:var(--sage-dim);color:var(--sage);border-radius:5px;padding:2px 6px;margin-bottom:5px;font-weight:500;
+  }
+  .card .badge-demo{
+    display:inline-block;font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:.5px;
+    background:var(--amber-dim);color:var(--amber);border-radius:5px;padding:2px 6px;margin-bottom:5px;font-weight:500;
+  }
+  .empty{
+    text-align:center;color:var(--text-dim);padding:48px 20px;font-size:14px;
+    border:1.5px dashed var(--border-strong);border-radius:var(--radius);margin:10px 0 24px;background:var(--surface);
+  }
+
+  /* ---------- views / nav ---------- */
+  .view{display:none}
+  .view.active{display:block;animation:fadeUp .3s ease}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  nav.bottom{
+    position:fixed;bottom:0;left:0;right:0;z-index:50;height:calc(var(--nav-h) + env(safe-area-inset-bottom,0px));
+    padding-bottom:env(safe-area-inset-bottom,0px);
+    background:var(--surface);border-top:1px solid var(--border);
+    display:flex;justify-content:center;
+  }
+  .nav-inner{display:flex;width:100%;max-width:560px}
+  .nav-btn{
+    flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+    background:none;border:none;cursor:pointer;font-family:var(--font-body);
+    font-size:10.5px;font-weight:600;color:var(--text-dim);padding-top:8px;transition:color .15s;
+  }
+  .nav-btn svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .nav-btn.active{color:var(--accent)}
+
+  /* ---------- sell form ---------- */
+  .form-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin:16px 0 24px}
+  .form-card h2{font-size:18px;font-weight:800;letter-spacing:-.2px}
+  .form-card .sub{font-size:13px;color:var(--text-dim);margin:4px 0 16px}
+  .field{margin-bottom:13px}
+  .field label{display:block;font-size:12px;font-weight:700;margin-bottom:5px;color:var(--text)}
+  .field label small{font-weight:500;color:var(--text-dim)}
+  .field input,.field select,.field textarea{
+    width:100%;font:inherit;font-size:14px;color:var(--text);
+    background:var(--bg);border:1px solid var(--border-strong);border-radius:10px;padding:10px 12px;outline:none;
+    transition:border-color .15s;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent)}
+  .field textarea{resize:vertical;min-height:70px}
+  .field .err{display:none;font-size:11.5px;color:var(--rose);margin-top:4px;font-weight:600}
+  .field.invalid input,.field.invalid select{border-color:var(--rose)}
+  .field.invalid .err{display:block}
+  .emoji-pick{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+  .emoji-pick button{
+    font-size:20px;width:42px;height:42px;border-radius:10px;cursor:pointer;
+    background:var(--bg);border:1.5px solid var(--border-strong);transition:all .12s;
+  }
+  .emoji-pick button.selected{border-color:var(--accent);background:var(--accent-dim);transform:scale(1.06)}
+  .submit-btn{
+    width:100%;background:var(--accent);color:#fff;border:none;border-radius:11px;
+    font:inherit;font-weight:800;font-size:15px;padding:13px;cursor:pointer;margin-top:6px;transition:transform .12s;
+  }
+  .submit-btn:active{transform:scale(.98)}
+  .hint-box{
+    background:var(--amber-dim);border:1px solid rgba(180,83,9,.2);border-radius:10px;
+    font-size:12px;color:var(--amber);padding:10px 12px;margin-bottom:14px;line-height:1.55;
+  }
+
+  /* ---------- modal ---------- */
+  .overlay{
+    position:fixed;inset:0;background:rgba(38,32,28,.45);z-index:100;display:none;
+    align-items:flex-end;justify-content:center;
+  }
+  .overlay.open{display:flex}
+  .sheet{
+    background:var(--surface);width:100%;max-width:560px;max-height:88dvh;overflow-y:auto;
+    border-radius:20px 20px 0 0;padding:10px 18px calc(24px + env(safe-area-inset-bottom,0px));
+    animation:slideUp .28s cubic-bezier(.2,.8,.3,1) both;
+  }
+  @keyframes slideUp{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+  .grab{width:44px;height:4px;border-radius:99px;background:var(--border-strong);margin:4px auto 12px}
+  .sheet .thumb{height:170px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:70px;background:var(--surface-2);background-size:cover;background-position:center}
+  .sheet .price{font-family:var(--font-mono);font-size:24px;font-weight:600;color:var(--accent-deep);margin-top:14px}
+  .sheet h3{font-size:18px;font-weight:800;letter-spacing:-.2px;margin-top:2px}
+  .kv{display:flex;gap:8px;font-size:13px;margin-top:10px;align-items:flex-start}
+  .kv .k{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--text-dim);width:86px;flex:none;padding-top:2px}
+  .kv .v{font-weight:600}
+  .kv .v small{display:block;font-weight:500;color:var(--text-dim);font-size:12px}
+  .desc{font-size:13.5px;color:var(--text-dim);margin-top:12px;line-height:1.6;white-space:pre-wrap}
+  .action-row{display:flex;gap:10px;margin-top:18px}
+  .btn{
+    flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;
+    font:inherit;font-weight:700;font-size:13.5px;border-radius:11px;padding:12px 10px;cursor:pointer;
+    border:1.5px solid var(--border-strong);background:var(--surface);color:var(--text);
+    text-decoration:none;transition:transform .12s;
+  }
+  .btn:active{transform:scale(.97)}
+  .btn.primary{background:var(--sage);border-color:var(--sage);color:#fff}
+  .btn.danger{color:var(--rose);border-color:rgba(190,18,60,.35)}
+  .btn.wide{width:100%}
+  .close-note{font-size:11px;color:var(--text-dim);text-align:center;margin-top:14px}
+
+  /* ---------- orders / my ads ---------- */
+  .order-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:14px;margin-bottom:12px;display:flex;gap:12px;align-items:center;animation:fadeUp .3s ease both;
+  }
+  .order-card .o-emoji{width:52px;height:52px;flex:none;border-radius:10px;background:var(--surface-2);display:flex;align-items:center;justify-content:center;font-size:26px}
+  .order-card .o-main{flex:1;min-width:0}
+  .order-card .o-title{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .order-card .o-sub{font-size:12px;color:var(--text-dim);margin-top:2px}
+  .status{
+    font-family:var(--font-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.6px;font-weight:500;
+    border-radius:6px;padding:3px 8px;flex:none;
+  }
+  .status.placed{background:var(--sage-dim);color:var(--sage)}
+  .status.listed{background:var(--accent-dim);color:var(--accent)}
+
+  /* ---------- toast ---------- */
+  .toast{
+    position:fixed;bottom:calc(var(--nav-h) + 20px);left:50%;transform:translateX(-50%) translateY(20px);
+    background:var(--text);color:var(--bg);font-size:13.5px;font-weight:600;
+    border-radius:99px;padding:10px 20px;opacity:0;pointer-events:none;transition:all .25s;z-index:200;
+    max-width:90vw;text-align:center;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  footer.pagefoot{padding:24px 0 12px;font-size:11.5px;color:var(--text-dim);text-align:center;line-height:1.7}
+  footer.pagefoot .mono{font-family:var(--font-mono);font-size:10px;letter-spacing:.5px;text-transform:uppercase}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="logo" id="appLogo"><span class="b1">be</span>liv<span class="b1">ery</span><sup style="font-size:9px;font-weight:600">™</sup></div>
+    <div class="tagline" id="appTagline">buy &middot; sell &middot; local</div>
+  </div>
+  <div class="demo-banner">DEMO PROTOTYPE &mdash; data isi browser me save hota he, koi real payment nahi hota</div>
+</header>
+
+<!-- ================= BROWSE ================= -->
+<section class="view active" id="view-browse">
+  <div class="wrap">
+    <div class="search-row">
+      <div class="search-box">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="searchInput" type="text" placeholder="Search products... (mobile, kursi, book)" autocomplete="off">
+      </div>
+    </div>
+    <button class="loc-bar" id="locBar" onclick="openLocSheet()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      <span id="locLabel">Location detect karo</span>
+      <span class="loc-change">badlo</span>
+    </button>
+    <div class="chips" id="chips"></div>
+
+    <div class="hero" id="hero">
+      <h1>Apna product becho,<br>ya paas ke logon se <em>kharido</em>.</h1>
+      <p id="heroSub">belivery ek local marketplace demo he &mdash; koi bhi apna product list kar sakta he, aur doosre usse khareed sakte he.</p>
+      <button class="cta" onclick="go('sell')">
+        + Free me product becho
+      </button>
+    </div>
+
+    <div class="section-label"><span>Fresh listings</span></div>
+    <div class="grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- ================= SELL ================= -->
+<section class="view" id="view-sell">
+  <div class="wrap">
+    <div class="form-card">
+      <h2>Apna product becho</h2>
+      <p class="sub">Free listing &mdash; abhi demo prototype, data sirf aapke browser me.</p>
+      <div class="hint-box">
+        Note: ye ek <b>demo</b> he. Real launch me seller ko GST/PAN verification, payment gateway aur app-store fees lag sakte he &mdash; details file ke bahar chat me diye he.
+      </div>
+      <form id="sellForm" novalidate>
+        <div class="field" id="f-title">
+          <label>Product ka naam</label>
+          <input id="in-title" type="text" maxlength="60" placeholder="e.g. Honda Activa 2019, 12,000 km">
+          <div class="err">Product ka naam likhna zaroori he</div>
+        </div>
+        <div class="field" id="f-price">
+          <label>Price (₹)</label>
+          <input id="in-price" type="number" min="1" inputmode="numeric" placeholder="e.g. 45000">
+          <div class="err">Sahi price likho (0 se zyada)</div>
+        </div>
+        <div class="field" id="f-cat">
+          <label>Category</label>
+          <select id="in-cat"></select>
+        </div>
+        <div class="field" id="f-cond">
+          <label>Condition</label>
+          <select id="in-cond">
+            <option value="New">Naya</option>
+            <option value="Like new">Bilkul naya jaisa</option>
+            <option value="Good">Achha</option>
+            <option value="Used">Used</option>
+          </select>
+        </div>
+        <div class="field" id="f-city">
+          <label>Sheher / City</label>
+          <input id="in-city" type="text" maxlength="30" placeholder="e.g. Jaipur">
+          <div class="err">City likhna zaroori he</div>
+        </div>
+        <div class="field" id="f-phone">
+          <label>Seller phone (WhatsApp)</label>
+          <input id="in-phone" type="tel" maxlength="10" inputmode="numeric" placeholder="10-digit mobile number">
+          <div class="err">10 digit ka sahi mobile number likho</div>
+        </div>
+        <div class="field">
+          <label>Photo <small>&mdash; demo me icon chuno (real app me photo upload hoga)</small></label>
+          <div class="emoji-pick" id="emojiPick"></div>
+        </div>
+        <div class="field" id="f-desc">
+          <label>Description <small>(optional)</small></label>
+          <textarea id="in-desc" maxlength="300" placeholder="Product ke baare me kuch likho..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">List karo &mdash; Free</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MY ADS ================= -->
+<section class="view" id="view-ads">
+  <div class="wrap">
+    <div class="section-label"><span>Meri listings</span></div>
+    <div id="myAdsList"></div>
+  </div>
+</section>
+
+<!-- ================= ORDERS ================= -->
+<section class="view" id="view-orders">
+  <div class="wrap">
+    <div class="section-label"><span>Mere orders</span></div>
+    <div id="ordersList"></div>
+  </div>
+</section>
+
+<nav class="bottom">
+  <div class="nav-inner">
+    <button class="nav-btn active" data-nav="browse" onclick="go('browse')">
+      <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg>
+      Browse
+    </button>
+    <button class="nav-btn" data-nav="sell" onclick="go('sell')">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>
+      Becho
+    </button>
+    <button class="nav-btn" data-nav="ads" onclick="go('ads')">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h5"/></svg>
+      My Ads
+    </button>
+    <button class="nav-btn" data-nav="orders" onclick="go('orders')">
+      <svg viewBox="0 0 24 24"><path d="M6 2 4 6v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6l-2-4z"/><path d="M4 6h16M16 10a4 4 0 0 1-8 0"/></svg>
+      Orders
+    </button>
+  </div>
+</nav>
+
+<!-- product detail sheet -->
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeSheet()">
+  <div class="sheet" id="sheet"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer class="pagefoot">
+  <div class="wrap">
+    <div class="mono">belivery &middot; demo prototype &middot; v1</div>
+    <div style="margin-top:6px">Ye ek working demo he &mdash; sab data aapke browser (localStorage) me store hota he, kahin upload nahi hota. Real marketplace banane ke liye legal + cost notes chat me diye he.</div>
+  </div>
+</footer>
+
+<script>
+/* ============ data ============ */
+var CATEGORIES = ["Electronics","Mobiles","Vehicles","Furniture","Fashion","Books","Home","Sports","Others"];
+var EMOJIS = { "Electronics":"🎧", "Mobiles":"📱", "Vehicles":"🛵", "Furniture":"🪑", "Fashion":"👕", "Books":"📚", "Home":"🍳", "Sports":"🏏", "Others":"📦" };
+var CAT_EMOJI_EXTRA = ["💻","⌚","🚲","🛋️","👟","✏️","🧺","⚽","🎁"];
+
+var SEED = [
+  {id:1, title:"Honda Activa 2019, 12,000 km", price:45000, cat:"Vehicles", cond:"Good", city:"Jaipur", phone:"98XXXXXX01", emoji:"🛵", desc:"Single owner, insurance valid, serviced regularly. RC ready.", own:false, demo:true, ts:Date.now()-86400000},
+  {id:2, title:"iPhone 12, 64GB, blue", price:28500, cat:"Mobiles", cond:"Like new", city:"Delhi", phone:"98XXXXXX02", emoji:"📱", desc:"Battery health 89%. Charger + cover included.", own:false, demo:true, ts:Date.now()-86400000*2},
+  {id:3, title:"Wooden study table", price:3200, cat:"Furniture", cond:"Used", city:"Lucknow", phone:"98XXXXXX03", emoji:"🪑", desc:"Sheesham wood, 4 saal purana but mazboot. Khud pick-up karna hoga.", own:false, demo:true, ts:Date.now()-86400000*3},
+  {id:4, title:"JBL headphones, wireless", price:2100, cat:"Electronics", cond:"Good", city:"Pune", phone:"98XXXXXX04", emoji:"🎧", desc:"Bass strong, charging cable included. 1.5 saal used.", own:false, demo:true, ts:Date.now()-86400000},
+  {id:5, title:"UPSC preparation books (set of 12)", price:1500, cat:"Books", cond:"Like new", city:"Patna", phone:"98XXXXXX05", emoji:"📚", desc:"NCERT + standard reference set. Kuch highlights he, baaki clean.", own:false, demo:true, ts:Date.now()-86400000*4},
+  {id:6, title:"Bajaj mixer grinder 750W", price:1800, cat:"Home", cond:"Good", city:"Indore", phone:"98XXXXXX06", emoji:"🍳", desc:"2 jars, chal raha he perfectly. Shifting ke wajah se bech raha hoon.", own:false, demo:true, ts:Date.now()-86400000},
+  {id:7, title:"Kirana monthly combo — aata, chawal, dal", price:1450, cat:"Home", cond:"New", city:"Banda", phone:"98XXXXXX07", emoji:"🧺", desc:"Banda ke local kirana se fresh monthly ration combo. Sirf Banda city me delivery.", own:false, demo:true, ts:Date.now()-86400000},
+  {id:8, title:"Hercules cycle, 26 inch", price:2400, cat:"Vehicles", cond:"Good", city:"Banda", phone:"98XXXXXX08", emoji:"🚲", desc:"Banda city me hi delivery. Brakes naye lagwaye he, tyres theek haalat me.", own:false, demo:true, ts:Date.now()-86400000*2},
+  {id:9, title:"Kadhai-patele set, steel", price:850, cat:"Home", cond:"Used", city:"Banda", phone:"98XXXXXX09", emoji:"🍳", desc:"2 saal used, bilkul theek haalat me. Civil Lines area se.", own:false, demo:true, ts:Date.now()-86400000},
+  {id:10, title:"Shuddh desi ghee, 1 kg (doodh se)", price:650, cat:"Home", cond:"New", city:"Atarra", phone:"98XXXXXX10", emoji:"🧺", desc:"Atarra ke gaon ka doodh, ghar pe pakaya ghee. Banda district me delivery.", own:false, demo:true, ts:Date.now()-86400000}
+];
+
+function load(k, fallback){
+  try{ var v = JSON.parse(localStorage.getItem(k)); return Array.isArray(v) && v.length ? v : fallback; }
+  catch(e){ return fallback; }
+}
+var products = load("belivery_products_v3", SEED);
+var orders = load("belivery_orders", []);
+function save(){ localStorage.setItem("belivery_products_v3", JSON.stringify(products)); localStorage.setItem("belivery_orders", JSON.stringify(orders)); }
+save();
+
+/* ============ helpers ============ */
+function $(id){ return document.getElementById(id); }
+function rupees(n){ return "₹" + Number(n).toLocaleString("en-IN"); }
+function toast(msg){
+  var t = $("toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(t._h); t._h = setTimeout(function(){ t.classList.remove("show"); }, 2400);
+}
+function timeAgo(ts){
+  var d = Math.floor((Date.now()-ts)/86400000);
+  if(d<=0) return "Aaj";
+  if(d===1) return "Kal";
+  return d + " din pehle";
+}
+
+/* ============ navigation ============ */
+function go(view){
+  document.querySelectorAll(".view").forEach(function(v){ v.classList.remove("active"); });
+  $("view-"+view).classList.add("active");
+  document.querySelectorAll(".nav-btn").forEach(function(b){
+    b.classList.toggle("active", b.getAttribute("data-nav")===view);
+  });
+  window.scrollTo(0,0);
+  if(view==="browse") renderGrid();
+  if(view==="ads") renderMyAds();
+  if(view==="orders") renderOrders();
+  if(view==="sell" && selCity.type!=="all" && !$("in-city").value){
+    $("in-city").value = selCity.name;
+  }
+}
+
+/* ============ location branding ============ */
+var DISTRICTS = {
+  "Banda":  {state:"UP", towns:["Banda","Atarra","Baberu","Naraini"]},
+  "Jhansi": {state:"UP", towns:["Jhansi","Mauranipur"]},
+  "Kanpur": {state:"UP", towns:["Kanpur","Bilhaur","Ghatampur"]},
+  "Jaipur": {state:"Rajasthan", towns:["Jaipur","Chomu","Chaksu"]}
+};
+function loadSel(){
+  var s = localStorage.getItem("belivery_place");
+  if(!s || s==="all") return {type:"all"};
+  var p = s.split("|");
+  return {type:"place", name:p[0], state:p[1]||""};
+}
+function saveSel(){ localStorage.setItem("belivery_place", selCity.type==="place" ? selCity.name+"|"+selCity.state : "all"); }
+var selCity = loadSel();
+
+function setSelPlace(name, state){
+  selCity = {type:"place", name:name, state:state||""};
+  saveSel(); updateBranding(); updateLocLabel(); renderGrid();
+}
+function setSelAll(){
+  selCity = {type:"all"};
+  saveSel(); updateBranding(); updateLocLabel(); renderGrid();
+}
+
+function updateLocLabel(){
+  var l = $("locLabel");
+  if(selCity.type==="all") l.textContent = "Location detect karo";
+  else l.textContent = selCity.name + (selCity.state ? ", " + selCity.state : "");
+}
+
+function openLocSheet(){
+  var s = $("sheet");
+  var html = '<div class="grab"></div><h3 style="font-size:18px;font-weight:800">Apna location</h3>' +
+    '<p style="font-size:13px;color:var(--text-dim);margin:6px 0 14px">Live location se app apne aap aapke sheher ke naam pe set ho jayega — jaise Banda ho to “Banda Delivery”.</p>' +
+    '<div class="action-row" style="flex-direction:column;gap:8px">' +
+    '<button class="btn primary wide" onclick="detectLocation()">Live location se auto-detect</button>' +
+    '<button class="btn wide" onclick="setSelAll();closeSheet()">Sab jagah — sab listings dikhao</button>';
+  Object.keys(DISTRICTS).forEach(function(d){
+    DISTRICTS[d].towns.forEach(function(t){
+      html += '<button class="btn wide" onclick="setSelPlace(\'' + t + '\',\'' + DISTRICTS[d].state + '\');closeSheet()">' + escapeHtml(t) + ', ' + d + ' (' + DISTRICTS[d].state + ')</button>';
+    });
+  });
+  html += '</div><div class="close-note">Auto-detect ke liye browser location permission chahiye. Demo me detect na ho to list me se chun lo.</div>';
+  s.innerHTML = html;
+  $("overlay").classList.add("open");
+}
+
+function detectLocation(){
+  if(!navigator.geolocation){ toast("Is browser me location support nahi he"); return; }
+  $("locLabel").textContent = "Location dhundh rahe he...";
+  navigator.geolocation.getCurrentPosition(function(pos){
+    var lat = pos.coords.latitude, lon = pos.coords.longitude;
+    fetch("https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=" + lat + "&lon=" + lon + "&accept-language=en")
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        var a = (data && data.address) || {};
+        var town = a.town || a.village || a.city || a.city_district || a.county;
+        if(town){ setSelPlace(town, a.state || ""); toast("Location set: " + town); }
+        else { updateLocLabel(); toast("Sheher nahi mil paya — list me se chuno"); }
+      })
+      .catch(function(){ updateLocLabel(); toast("Location service se connect nahi hua — list me se chuno"); });
+  }, function(){
+    updateLocLabel(); toast("Location permission nahi mili — list me se chuno");
+  }, {timeout:10000});
+}
+
+function updateBranding(){
+  var logo = $("appLogo"), tag = $("appTagline"), sub = $("heroSub");
+  if(selCity.type === "place"){
+    logo.innerHTML = '<span class="b1">' + escapeHtml(selCity.name) + '</span> Delivery';
+    tag.textContent = "powered by belivery";
+    document.title = selCity.name + " Delivery — Buy & Sell Near You";
+    sub.textContent = selCity.name + (selCity.state ? " (" + selCity.state + ")" : "") + " ka apna marketplace — yahin ki dukaanein, yahin ke log, yahin ki delivery. powered by belivery.";
+  } else {
+    logo.innerHTML = '<span class="b1">be</span>liv<span class="b1">ery</span><sup style="font-size:9px;font-weight:600">™</sup>';
+    tag.textContent = "buy · sell · local";
+    document.title = "belivery — Buy & Sell Near You";
+    sub.textContent = "belivery ek local marketplace demo he — koi bhi apna product list kar sakta he, aur doosre usse khareed sakte he.";
+  }
+}
+
+/* ============ browse ============ */
+var activeCat = "All";
+var query = "";
+
+function renderChips(){
+  var el = $("chips");
+  el.innerHTML = "";
+  ["All"].concat(CATEGORIES).forEach(function(c){
+    var b = document.createElement("button");
+    b.className = "chip" + (c===activeCat ? " active":"");
+    b.textContent = c;
+    b.onclick = function(){ activeCat = c; renderChips(); renderGrid(); };
+    el.appendChild(b);
+  });
+}
+
+function filtered(){
+  return products.filter(function(p){
+    var okCat = activeCat==="All" || p.cat===activeCat;
+    var okCity = selCity.type==="all" || p.city===selCity.name;
+    var q = query.trim().toLowerCase();
+    var okQ = !q || (p.title+" "+p.city+" "+p.cat).toLowerCase().indexOf(q) > -1;
+    return okCat && okQ && okCity;
+  }).slice().sort(function(a,b){ return b.ts - a.ts; });
+}
+
+function renderGrid(){
+  var list = filtered();
+  var g = $("productGrid");
+  $("hero").style.display = (list.length===0) ? "none" : "block";
+  g.innerHTML = "";
+  if(!list.length){
+    g.innerHTML = '<div class="empty" style="grid-column:1/-1">' + (selCity.type!=="all" ? escapeHtml(selCity.name) + " me abhi koi listing nahi he.<br>Pehli listing aap bano — Becho tab me jao!" : "Kuch nahi mila.<br>Doosra keyword try karo, ya apna product list karo.") + '</div>';
+    return;
+  }
+  list.forEach(function(p, i){
+    var c = document.createElement("div");
+    c.className = "card"; c.style.animationDelay = Math.min(i*40, 320) + "ms";
+    c.innerHTML =
+      '<div class="thumb" style="'+(p.img?("background-image:url('"+p.img+"')"):"")+'">'+(p.img?"":p.emoji)+'</div>'+
+      '<div class="body">'+
+        (p.own?'<span class="badge-own">Aapki ad</span>':(p.demo?'<span class="badge-demo">Demo</span>':''))+
+        '<div class="price">'+rupees(p.price)+'</div>'+
+        '<div class="title">'+escapeHtml(p.title)+'</div>'+
+        '<div class="meta">'+escapeHtml(p.city)+' &middot; '+timeAgo(p.ts)+'</div>'+
+      '</div>';
+    c.onclick = function(){ openSheet(p.id); };
+    g.appendChild(c);
+  });
+}
+
+function escapeHtml(s){ var d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
+
+$("searchInput").addEventListener("input", function(e){ query = e.target.value; renderGrid(); });
+
+/* ============ product sheet ============ */
+function closeSheet(){ $("overlay").classList.remove("open"); }
+function openSheet(id){
+  var p = products.find(function(x){ return x.id===id; });
+  if(!p) return;
+  var s = $("sheet");
+  var wa = "https://wa.me/91" + p.phone.replace(/\D/g,"") + "?text=" + encodeURIComponent(
+    "Hi! belivery par aapki listing '" + p.title + "' (" + rupees(p.price) + ") dekhi. Kya ye available he?"
+  );
+  var tel = "tel:+91" + p.phone.replace(/\D/g,"");
+  s.innerHTML =
+    '<div class="grab"></div>'+
+    '<div class="thumb" style="'+(p.img?("background-image:url('"+p.img+"')"):"")+'">'+(p.img?"":p.emoji)+'</div>'+
+    '<div class="price">'+rupees(p.price)+'</div>'+
+    '<h3>'+escapeHtml(p.title)+'</h3>'+
+    '<div class="kv"><div class="k">Condition</div><div class="v">'+escapeHtml(p.cond)+'</div></div>'+
+    '<div class="kv"><div class="k">Category</div><div class="v">'+escapeHtml(p.cat)+'</div></div>'+
+    '<div class="kv"><div class="k">Location</div><div class="v">'+escapeHtml(p.city)+'<small>Verification: demo mode</small></div></div>'+
+    '<div class="kv"><div class="k">Seller</div><div class="v">+91 '+escapeHtml(p.phone)+'<small>'+(p.own?"Aap khud":(p.demo?"Demo seller":"Local seller"))+'</small></div></div>'+
+    (p.desc?('<div class="desc">'+escapeHtml(p.desc)+'</div>'):'')+
+    '<div class="action-row">'+
+      '<a class="btn" href="'+tel+'">Call karo</a>'+
+      '<a class="btn" href="'+wa+'" target="_blank" rel="noopener">WhatsApp</a>'+
+    '</div>'+
+    '<div class="action-row"><button class="btn primary wide" onclick="buyNow('+p.id+')">Buy Now &mdash; order place karo</button></div>'+
+    '<div class="close-note">Demo: koi real payment process nahi hota. Order sirf aapke browser me record hota he.</div>';
+  $("overlay").classList.add("open");
+}
+
+function buyNow(id){
+  var p = products.find(function(x){ return x.id===id; });
+  if(!p) return;
+  orders.unshift({ id: Date.now(), pid: p.id, title: p.title, price: p.price, emoji: p.img?"":p.emoji, city: p.city, ts: Date.now(), status: "placed" });
+  save();
+  closeSheet();
+  toast("Order place ho gaya (demo) — Orders tab me dekho");
+  go("orders");
+}
+
+/* ============ sell form ============ */
+(function initForm(){
+  var sel = $("in-cat");
+  CATEGORIES.forEach(function(c){
+    var o = document.createElement("option"); o.value=c; o.textContent=c; sel.appendChild(o);
+  });
+  var pick = $("emojiPick");
+  var all = [];
+  CATEGORIES.forEach(function(c){ all.push(EMOJIS[c]); });
+  all = all.concat(CAT_EMOJI_EXTRA);
+  var selected = EMOJIS[CATEGORIES[0]];
+  all.forEach(function(e){
+    var b = document.createElement("button");
+    b.type="button"; b.textContent = e;
+    if(e===selected) b.classList.add("selected");
+    b.onclick = function(){
+      selected = e;
+      pick.querySelectorAll("button").forEach(function(x){ x.classList.remove("selected"); });
+      b.classList.add("selected");
+    };
+    pick.appendChild(b);
+  });
+  pick._get = function(){ return selected; };
+
+  $("sellForm").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var title = $("in-title").value.trim();
+    var price = parseInt($("in-price").value, 10);
+    var city = $("in-city").value.trim();
+    var phone = $("in-phone").value.replace(/\D/g,"");
+    var ok = true;
+    function mark(fid, bad){ var f=$(fid); f.classList.toggle("invalid", bad); if(bad) ok=false; }
+    mark("f-title", title.length<3);
+    mark("f-price", !(price>0));
+    mark("f-city", city.length<2);
+    mark("f-phone", phone.length!==10);
+    if(!ok){ toast("Form me kuch fields missing he"); return; }
+
+    products.unshift({
+      id: Date.now(),
+      title: title, price: price,
+      cat: $("in-cat").value, cond: $("in-cond").value,
+      city: city, phone: phone,
+      emoji: pick._get(),
+      desc: $("in-desc").value.trim(),
+      own: true, demo: false, img: "",
+      ts: Date.now()
+    });
+    save();
+    this.reset();
+    pick.querySelectorAll("button").forEach(function(x,i){ x.classList.toggle("selected", i===0); });
+    selected = EMOJIS[CATEGORIES[0]];
+    toast("Listing live ho gayi — My Ads me dekho");
+    go("browse");
+  });
+})();
+
+/* ============ my ads ============ */
+function renderMyAds(){
+  var box = $("myAdsList");
+  var mine = products.filter(function(p){ return p.own; });
+  if(!mine.length){
+    box.innerHTML = '<div class="empty">Aapki koi listing nahi he.<br><b>Becho</b> tab par jaake apna pehla product list karo.</div>';
+    return;
+  }
+  box.innerHTML = "";
+  mine.forEach(function(p){
+    var d = document.createElement("div");
+    d.className = "order-card";
+    d.innerHTML =
+      '<div class="o-emoji">'+(p.img?"":p.emoji)+'</div>'+
+      '<div class="o-main"><div class="o-title">'+escapeHtml(p.title)+'</div>'+
+      '<div class="o-sub">'+rupees(p.price)+' &middot; '+escapeHtml(p.city)+' &middot; '+timeAgo(p.ts)+'</div></div>'+
+      '<span class="status listed">Live</span>'+
+      '<button class="btn danger" style="flex:none;padding:8px 12px" onclick="removeAd('+p.id+')">Delete</button>';
+    box.appendChild(d);
+  });
+}
+function removeAd(id){
+  if(!confirm("Ye listing delete karni he?")) return;
+  products = products.filter(function(p){ return p.id!==id; });
+  save(); renderMyAds(); toast("Listing delete ho gayi");
+}
+
+/* ============ orders ============ */
+function renderOrders(){
+  var box = $("ordersList");
+  if(!orders.length){
+    box.innerHTML = '<div class="empty">Abhi koi order nahi.<br>Kisi product par <b>Buy Now</b> dabao (demo flow).</div>';
+    return;
+  }
+  box.innerHTML = "";
+  orders.forEach(function(o){
+    var d = document.createElement("div");
+    d.className = "order-card";
+    d.innerHTML =
+      '<div class="o-emoji">'+(o.emoji||"📦")+'</div>'+
+      '<div class="o-main"><div class="o-title">'+escapeHtml(o.title)+'</div>'+
+      '<div class="o-sub">'+rupees(o.price)+' &middot; '+escapeHtml(o.city)+' &middot; '+timeAgo(o.ts)+'</div></div>'+
+      '<span class="status placed">Order placed</span>';
+    box.appendChild(d);
+  });
+}
+
+/* ============ init ============ */
+renderChips();
+updateBranding();
+updateLocLabel();
+renderGrid();
+if(!localStorage.getItem("belivery_place") && !localStorage.getItem("belivery_loc_asked")){
+  localStorage.setItem("belivery_loc_asked","1");
+  detectLocation();
+}
+</script>
+</body>
+</html>
