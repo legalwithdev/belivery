@@ -36,6 +36,7 @@
       --rose:#fb7185; --rose-dim:rgba(251,113,133,.15);
     }
     .card .thumb{box-shadow:0 8px 24px rgba(0,0,0,.45)}
+    .ai-fab{box-shadow:0 10px 28px rgba(0,0,0,.55)}
   }
 
   *{margin:0;padding:0;box-sizing:border-box}
@@ -269,6 +270,21 @@
   footer.pagefoot{padding:24px 0 12px;font-size:11.5px;color:var(--text-dim);text-align:center;line-height:1.7}
   footer.pagefoot .mono{font-family:var(--font-mono);font-size:10px;letter-spacing:.5px;text-transform:uppercase}
 
+
+  /* ---------- AI assistant floating button (v5.2) ---------- */
+  .ai-fab{
+    position:fixed; right:18px; bottom:calc(var(--nav-h) + 18px + env(safe-area-inset-bottom,0px));
+    width:58px;height:58px;border-radius:50%;border:none;cursor:pointer;z-index:60;
+    background:var(--text);color:var(--bg);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+    box-shadow:0 10px 28px rgba(38,32,28,.30);
+    font-family:var(--font-mono);font-size:8.5px;font-weight:600;letter-spacing:.8px;
+    text-transform:uppercase;transition:transform .15s,opacity .2s;
+  }
+  .ai-fab:active{transform:scale(.90)}
+  .ai-fab svg{width:22px;height:22px;fill:currentColor}
+  .ai-fab.hidden{display:none}
+
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
   }
@@ -409,6 +425,13 @@
 
 <div class="toast" id="toast"></div>
 
+<!-- Belivery AI assistant floating button (v5.2) -->
+<button class="ai-fab" id="aiFab" onclick="openAI()" aria-label="Belivery AI Assistant">
+  <svg viewBox="0 0 24 24"><path d="M12 2l1.9 5.7L19.6 9.6l-4.4 3.9 1.1 5.9L12 16.6l-4.3 2.8 1.1-5.9-4.4-3.9 5.7-1.9L12 2zm7 3.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
+  <span>AI</span>
+</button>
+
+
 <footer class="pagefoot">
   <div class="wrap">
     <div class="mono" data-i18n="foot_mono">belivery&trade; &middot; v3</div>
@@ -506,7 +529,10 @@ hi:{
 "submit":"लिस्ट करें — मुफ़्त",
 "my_listings":"मेरी लिस्टिंग","my_orders":"मेरे ऑर्डर",
 "nav_browse":"ब्राउज़","nav_sell":"बेचें","nav_ads":"मेरे विज्ञापन","nav_orders":"ऑर्डर",
-"foot_mono":"belivery™ · v5.1",
+"ai_title":"Belivery AI — बुद्धमति दोस्त",
+"ai_body":"नमस्ते! 🤖 मैं Belivery AI हूँ — अभी तैयार हो रहा हूँ। तब तक कोई भी सवाल हो तो WhatsApp पर पूछो — हम जवाब देंगे।",
+"ai_close":"बंद करो",
+"foot_mono":"belivery™ · v5.2",
 "footer_note":"बीटा संस्करण — सारा डेटा आपके ब्राउज़र में सेव होता है, कहीं अपलोड नहीं होता। कोई असली पेमेंट नहीं होता।"
 },
 en:{
@@ -563,7 +589,10 @@ en:{
 "submit":"List it — Free",
 "my_listings":"My listings","my_orders":"My orders",
 "nav_browse":"Browse","nav_sell":"Sell","nav_ads":"My Ads","nav_orders":"Orders",
-"foot_mono":"belivery™ · v5",
+"ai_title":"Belivery AI — smart helper",
+"ai_body":"Namaste! 🤖 I am Belivery AI — getting ready to launch. Till then, ask anything on WhatsApp — we answer there.",
+"ai_close":"Close",
+"foot_mono":"belivery™ · v5.2",
 "footer_note":"Beta version — all data is stored in your own browser and never uploaded. No real payments."
 }
 };
@@ -616,6 +645,7 @@ function go(view){
     b.classList.toggle("active", b.getAttribute("data-nav")===view);
   });
   window.scrollTo(0,0);
+  var fab = $("aiFab"); if(fab) fab.classList.toggle("hidden", view!=="browse");
   if(view==="browse") renderGrid();
   if(view==="ads") renderMyAds();
   if(view==="orders") renderOrders();
@@ -799,6 +829,26 @@ function buyNow(id){
   closeSheet();
   toast(T("t_order_ok"));
   go("orders");
+}
+
+
+/* ============ AI assistant sheet (v5.2) ============ */
+function openAI(){
+  var s = $("sheet");
+  var waMsg = (LANG === "hi")
+    ? "नमस्ते Belivery! मुझे मदद चाहिए।"
+    : "Hi Belivery! I need some help.";
+  var wa = "https://wa.me/918013968142?text=" + encodeURIComponent(waMsg);
+  s.innerHTML =
+    '<div class="grab"></div>'+
+    '<div class="thumb" style="height:110px;font-size:46px">🤖</div>'+
+    '<h3 style="text-align:center">'+T("ai_title")+'</h3>'+
+    '<div class="desc" style="text-align:center">'+T("ai_body")+'</div>'+
+    '<div class="action-row" style="flex-direction:column">'+
+      '<a class="btn primary wide" href="'+wa+'" target="_blank" rel="noopener">WhatsApp</a>'+
+      '<button class="btn wide" onclick="closeSheet()">'+T("ai_close")+'</button>'+
+    '</div>';
+  $("overlay").classList.add("open");
 }
 
 /* ============ sell form ============ */
