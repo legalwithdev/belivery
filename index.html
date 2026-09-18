@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#c2410c">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#c2410c">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#141110">
 <title>बेलिवरी — अपने शहर में ख़रीदें और बेचें</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Azeret+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
+    color-scheme:light dark;
     --bg:#faf7f5; --surface:#ffffff; --surface-2:#f4efeb;
     --border:rgba(0,0,0,.09); --border-strong:rgba(0,0,0,.16);
     --text:#26201c; --text-dim:#7a6f66;
@@ -21,6 +23,21 @@
     --font-mono:'Azeret Mono',ui-monospace,monospace;
     --nav-h:64px;
   }
+
+  /* ===== AUTO DARK MODE — device setting ke hisaab se (v5.1) ===== */
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#141110; --surface:#1d1916; --surface-2:#272220;
+      --border:rgba(255,255,255,.09); --border-strong:rgba(255,255,255,.17);
+      --text:#f1eae4; --text-dim:#a49a90;
+      --accent:#ff7a45; --accent-dim:rgba(255,122,69,.15); --accent-deep:#ff9d73;
+      --sage:#a3cf5e; --sage-dim:rgba(163,207,94,.15);
+      --amber:#f5a524; --amber-dim:rgba(245,165,36,.15);
+      --rose:#fb7185; --rose-dim:rgba(251,113,133,.15);
+    }
+    .card .thumb{box-shadow:0 8px 24px rgba(0,0,0,.45)}
+  }
+
   *{margin:0;padding:0;box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
   body{
@@ -439,7 +456,7 @@ hi:{
 "search_ph":"प्रोडक्ट खोजें… (मोबाइल, कुर्सी, किताब)",
 "loc_change":"बदलें","loc_detect":"लोकेशन पता करें","loc_searching":"लोकेशन ढूँढ रहे हैं…",
 "loc_sheet_title":"अपनी लोकेशन",
-"loc_sheet_sub":"लाइव लोकेशन से ऐप ख़ुद आपके शहर के नाम पर सेट हो जाएगी — जैसे बांदा पर “बांदा Delivery”।",
+"loc_sheet_sub":"लाइव लोकेशन से ऐप ख़ुद आपके शहर के नाम पर सेट हो जाएगी — जैसे बांदा पर “बांदा Delivery”。
 "loc_detect_btn":"लाइव लोकेशन से पता करें",
 "loc_all_btn":"सब जगह — सारी लिस्टिंग दिखाएँ",
 "loc_sheet_note":"ऑटो-डिटेक्ट के लिए ब्राउज़र को लोकेशन की अनुमति चाहिए। काम न करे तो नीचे लिस्ट से चुन लें।",
@@ -470,7 +487,8 @@ hi:{
 "t_listed":"लिस्टिंग लाइव हो गई — मेरे विज्ञापन में देखें",
 "empty_ads":"आपकी कोई लिस्टिंग नहीं है।<br>बेचें टैब पर जाकर पहला प्रोडक्ट लिस्ट करें।",
 "st_live":"लाइव","btn_delete":"हटाएँ",
-"t_confirm_del":"यह लिस्टिंग हटानी है?","t_deleted":"लिस्टिंग हटा दी गई",
+"t_confirm_del":"यह लिस्टिंग हटानी है?",
+"t_deleted":"लिस्टिंग हटा दी गई",
 "empty_orders":"अभी कोई ऑर्डर नहीं।<br>किसी प्रोडक्ट पर “अभी ख़रीदें” दबाएँ।",
 "st_placed":"ऑर्डर दिया",
 "ago_today":"आज","ago_yday":"कल","ago_days":" दिन पहले",
@@ -488,14 +506,14 @@ hi:{
 "submit":"लिस्ट करें — मुफ़्त",
 "my_listings":"मेरी लिस्टिंग","my_orders":"मेरे ऑर्डर",
 "nav_browse":"ब्राउज़","nav_sell":"बेचें","nav_ads":"मेरे विज्ञापन","nav_orders":"ऑर्डर",
-"foot_mono":"belivery™ · v5",
+"foot_mono":"belivery™ · v5.1",
 "footer_note":"बीटा संस्करण — सारा डेटा आपके ब्राउज़र में सेव होता है, कहीं अपलोड नहीं होता। कोई असली पेमेंट नहीं होता।"
 },
 en:{
 "search_ph":"Search products… (mobile, chair, book)",
 "loc_change":"change","loc_detect":"Detect location","loc_searching":"Finding location…",
 "loc_sheet_title":"Your location",
-"loc_sheet_sub":"With live location, the app sets itself to your town’s name — e.g. in Banda it becomes “Banda Delivery”.",
+"loc_sheet_sub":"With live location, the app sets itself to your town’s name — e.g. in Banda it becomes “Banda Delivery”.
 "loc_detect_btn":"Auto-detect from live location",
 "loc_all_btn":"Everywhere — show all listings",
 "loc_sheet_note":"Auto-detect needs browser location permission. If it doesn’t work, pick from the list.",
@@ -526,7 +544,8 @@ en:{
 "t_listed":"Listing is live — see My Ads",
 "empty_ads":"You have no listings yet.<br>Go to the Sell tab and list your first product.",
 "st_live":"Live","btn_delete":"Delete",
-"t_confirm_del":"Delete this listing?","t_deleted":"Listing deleted",
+"t_confirm_del":"Delete this listing?",
+"t_deleted":"Listing deleted",
 "empty_orders":"No orders yet.<br>Tap Buy Now on any product.",
 "st_placed":"Order placed",
 "ago_today":"Today","ago_yday":"Yesterday","ago_days":" days ago",
