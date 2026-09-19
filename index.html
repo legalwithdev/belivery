@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#c2410c">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#141110">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>‡§¨‡•á‡§≤‡§ø‡§µ‡§∞‡•Ä ‚Äî ‡§Ö‡§™‡§®‡•á ‡§∂‡§π‡§∞ ‡§Æ‡•á‡§Ç ‡§ñ‡§º‡§∞‡•Ä‡§¶‡•á‡§Ç ‡§î‡§∞ ‡§¨‡•á‡§ö‡•á‡§Ç</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Azeret+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,7 +29,8 @@
   /* ===== AUTO DARK MODE ‚Äî device setting ke hisaab se (v5.1) ===== */
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#141110; --surface:#1d1916; --surface-2:#272220;
+      --bg:#141110;
+      --surface:#1d1916; --surface-2:#272220;
       --border:rgba(255,255,255,.09); --border-strong:rgba(255,255,255,.17);
       --text:#f1eae4; --text-dim:#a49a90;
       --accent:#ff7a45; --accent-dim:rgba(255,122,69,.15); --accent-deep:#ff9d73;
@@ -48,9 +51,9 @@
   }
   .wrap{max-width:640px;margin:0 auto;padding:0 18px}
 
-  /* ---------- top header ---------- */
+  /* --------- top header ---------- */
   header.topbar{
-    position:sticky; top:0; z-index:40; background:rgba(250,247,245,.92);
+    position:sticky; top:0; z-index:400; background:rgba(250,247,245,.92);
     backdrop-filter:blur(8px); border-bottom:1px solid var(--border);
   }
   .topbar-inner{display:flex;align-items:center;gap:10px;padding:12px 0}
@@ -74,7 +77,7 @@
   }
   .demo-banner b{font-weight:800}
 
-  /* ---------- search ---------- */
+  /* --------- search ---------- */
   .search-row{padding:12px 0 4px}
   .search-box{
     display:flex;align-items:center;gap:10px;background:var(--surface);
@@ -94,19 +97,20 @@
     font-family:var(--font-body);
   }
   .chip.active{background:var(--text);color:var(--bg);border-color:var(--text)}
-  .loc-bar{display:flex;align-items:center;gap:8px;width:100%;background:var(--surface);border:1px solid var(--border-strong);border-radius:999px;padding:13px 18px;margin:14px 0 4px;cursor:pointer;font:inherit;font-size:14px;font-weight:600;color:var(--text);text-align:left;transition:transform .12s}
+  .loc-bar{display:flex;align-items:center;gap:8px;width:100%;background:var(--surface);border:1px solid var(--border-strong);border-radius:999px;padding:13px 18px;margin:14px 0
+4px;cursor:pointer;font:inherit;font-size:14px;font-weight:600;color:var(--text);text-align:left;transition:transform .12s}
   .loc-bar:active{transform:scale(.98)}
   .loc-bar svg{flex:none;color:var(--accent)}
   .loc-change{margin-left:auto;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);font-weight:500}
 
-  /* ---------- section label ---------- */
+  /* --------- section label ---------- */
   .section-label{
     display:flex;align-items:center;gap:8px;margin:24px 0 12px;
     font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-dim);
   }
   .section-label::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--accent)}
 
-  /* ---------- hero ---------- */
+  /* ---------- hero ----------- */
   .hero{
     background:var(--surface);border:1px solid var(--border);border-radius:24px;
     padding:46px 22px 42px;margin-top:16px;position:relative;overflow:hidden;text-align:center;
@@ -115,7 +119,7 @@
   .hero h1{font-size:30px;font-weight:800;line-height:1.16;letter-spacing:-.8px;position:relative;z-index:1}
   .hero h1 em{font-style:normal;color:var(--accent)}
   .hero p{color:var(--text-dim);font-size:14.5px;margin-top:10px;max-width:400px;margin-left:auto;margin-right:auto;position:relative;z-index:1}
-  .hero .cta{
+  .hero .ctG
     margin-top:24px;display:inline-flex;align-items:center;gap:8px;
     background:var(--text);color:var(--bg);font-weight:700;font-size:15px;
     border:none;border-radius:999px;padding:14px 30px;cursor:pointer;position:relative;z-index:1;
@@ -123,7 +127,7 @@
   }
   .hero .cta:active{transform:scale(.97)}
 
-  /* ---------- product grid ---------- */
+  /* ---------- product grid ----------- */
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:28px}
   @media(min-width:460px){.grid{grid-template-columns:repeat(3,1fr)}}
   .card{
@@ -234,7 +238,7 @@
     flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;
     font:inherit;font-weight:700;font-size:13.5px;border-radius:999px;padding:13px 12px;cursor:pointer;
     border:1.5px solid var(--border-strong);background:var(--surface);color:var(--text);
-    text-decoration:none;transition:transform .12s;
+    text-decoration:none;transition:transform .1rs;
   }
   .btn:active{transform:scale(.97)}
   .btn.primary{background:var(--sage);border-color:var(--sage);color:#fff}
@@ -285,6 +289,70 @@
   .ai-fab svg{width:22px;height:22px;fill:currentColor}
   .ai-fab.hidden{display:none}
 
+
+  /* ---------- PWA install bar (v5.3) ---------- */
+  .install-bar{
+    display:flex;align-items:center;gap:8px;background:var(--sage-dim);
+    border:1px solid rgba(101,163,13,.25);border-radius:14px;padding:10px 12px;
+    margin:12px 0 0;font-size:12.5px;font-weight:600;color:var(--text);
+  }
+  .install-bar.hidden{display:none}
+  .install-bar .ib-ic{flex:none}
+  .install-bar #installText{flex:1;min-width:0}
+  .install-bar .ib-btn{
+    flex:none;background:var(--sage);color:#fff;border:none;border-radius:999px;
+    font:inherit;font-weight:700;font-size:12px;padding:7px 14px;cursor:pointer;
+  }
+  .install-bar .ib-x{flex:none;background:none;border:none;color:var(--text-dim);font-size:15px;cursor:pointer;padding:2px 4px}
+
+
+  /* ---------- menu drawer (v5.4) ---------- */
+  .menu-btn{
+    background:var(--surface);border:1px solid var(--border);border-radius:999px;
+    width:38px;height:38px;flex:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:transform .12s;
+  }
+  .menu-btn:active{transform:scale(.90)}
+  .menu-btn svg{width:19px;height:19px;stroke:var(--text);fill:none;stroke-width:2;stroke-linecap:round}
+  .menu-overlay{
+    position:fixed;inset:0;background:rgba(38,32,28,.45);z-index:150;display:none;
+  }
+  .menu-overlay.open{display:block;animation:fadeIn .2s ease}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  .menu-drawer{
+    position:fixed;top:0;right:0;bottom:0;z-index:160;width:80%;max-width:320px;
+    background:var(--surface);border-left:1px solid var(--border);
+    box-shadow:-12px 0 40px rgba(38,32,28,.18);
+    transform:translateX(105%);transition:transform .28s cubic-bezier(.2,.8,.3,1);
+    display:flex;flex-direction:column;
+  }
+  .menu-drawer.open{transform:translateX(0)}
+  .menu-head{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 18px 14px;border-bottom:1px solid var(--border);
+  }
+  .menu-head .m-logo{font-weight:800;font-size:20px;color:var(--text)}
+  .menu-head .m-logo .b1{color:var(--accent)}
+  .menu-close{
+    background:none;border:none;font-size:20px;color:var(--text-dim);cursor:pointer;
+    width:34px;height:34px;border-radius:50%;
+  }
+  .menu-list{flex:1;overflow-y:auto;padding:10px 0}
+  .menu-item{
+    display:flex;align-items:center;gap:13px;width:100%;text-align:left;
+    background:none;border:none;cursor:pointer;font-family:var(--font-body);
+    font-size:14.5px;font-weight:600;color:var(--text);padding:13px 20px;
+    transition:background .12s;
+  }
+  .menu-item:active{background:var(--surface-2)}
+  .menu-item .mi{width:22px;text-align:center;font-size:17px;flex:none}
+  .menu-item .ma{margin-left:auto;font-family:var(--font-mono);font-size:9.5px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px}
+  .menu-sep{height:1px;background:var(--border);margin:8px 18px}
+  .menu-foot{
+    padding:14px 20px calc(14px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--border);
+    font-family:var(--font-mono);font-size:9.5px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;text-align:center;
+  }
+
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
   }
@@ -297,8 +365,19 @@
     <div class="logo" id="appLogo"><span class="b1">be</span>liv<span class="b1">ery</span><sup style="font-size:9px;font-weight:600">‚Ñ¢</sup></div>
     <div class="tagline" id="appTagline">‡§ñ‡§∞‡•Ä‡§¶‡•ã &middot; ‡§¨‡•á‡§ö‡•ã &middot; ‡§≤‡•ã‡§ï‡§≤</div>
     <button class="lang-btn" id="langBtn" onclick="toggleLang()" title="‡§≠‡§æ‡§∑‡§æ ‡§¨‡§¶‡§≤‡•á‡§Ç / switch language">EN</button>
+    <button class="menu-btn" id="menuBtn" onclick="openMenu()" aria-label="Menu">
+      <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
   </div>
 </header>
+
+<div class="install-bar hidden" id="installBar">
+  <span class="ib-ic">üì≤</span>
+  <span id="installText">üì≤ Belivery ko app jaisa install karo ‚Äî ek tap me khulegi</span>
+  <button class="ib-btn" id="installBtn" onclick="installApp()">Install</button>
+  <button class="ib-x" onclick="dismissInstall()" aria-label="Close">‚úï</button>
+</div>
+
 
 <!-- ================= BROWSE ================= -->
 <section class="view active" id="view-browse">
@@ -358,130 +437,7 @@
           </select>
         </div>
         <div class="field" id="f-city">
-          <label data-i18n="f_city">‡§∂‡§π‡§∞</label>
-          <input id="in-city" type="text" maxlength="30" data-i18n-ph="ph_city" placeholder="‡§ú‡•à‡§∏‡•á: ‡§¨‡§æ‡§Ç‡§¶‡§æ">
-          <div class="err" data-i18n="err_city">‡§∂‡§π‡§∞ ‡§≤‡§ø‡§ñ‡§®‡§æ ‡§ú‡§º‡§∞‡•Ç‡§∞‡•Ä ‡§π‡•à</div>
-        </div>
-        <div class="field" id="f-phone">
-          <label data-i18n="f_phone">‡§¶‡•Å‡§ï‡§æ‡§® ‡§ï‡§æ ‡§´‡§º‡•ã‡§® (‡§∏‡§ø‡§∞‡•ç‡§´‡§º Belivery ‡§¶‡•á‡§ñ‡•á‡§ó‡•Ä)</label>
-          <input id="in-phone" type="tel" maxlength="10" inputmode="numeric" data-i18n-ph="ph_phone" placeholder="10 ‡§Ö‡§Ç‡§ï ‡§ï‡§æ ‡§Æ‡•ã‡§¨‡§æ‡§á‡§≤ ‡§®‡§Ç‡§¨‡§∞">
-          <div class="err" data-i18n="err_phone">10 ‡§Ö‡§Ç‡§ï ‡§ï‡§æ ‡§∏‡§π‡•Ä ‡§Æ‡•ã‡§¨‡§æ‡§á‡§≤ ‡§®‡§Ç‡§¨‡§∞ ‡§≤‡§ø‡§ñ‡•á‡§Ç</div>
-        </div>
-        <div class="field">
-          <label data-i18n-html="f_photo">‡§´‡§º‡•ã‡§ü‡•ã <small>&mdash; ‡§Ü‡§á‡§ï‡§® ‡§ö‡•Å‡§®‡•á‡§Ç</small></label>
-          <div class="emoji-pick" id="emojiPick"></div>
-        </div>
-        <div class="field" id="f-desc">
-          <label data-i18n-html="f_desc">‡§µ‡§ø‡§µ‡§∞‡§£ <small>(‡§µ‡•à‡§ï‡§≤‡•ç‡§™‡§ø‡§ï)</small></label>
-          <textarea id="in-desc" maxlength="300" data-i18n-ph="ph_desc" placeholder="‡§™‡•ç‡§∞‡•ã‡§°‡§ï‡•ç‡§ü ‡§ï‡•á ‡§¨‡§æ‡§∞‡•á ‡§Æ‡•á‡§Ç ‡§ï‡•Å‡§õ ‡§≤‡§ø‡§ñ‡•á‡§Ç‚Ä¶"></textarea>
-        </div>
-        <button type="submit" class="submit-btn" data-i18n="submit">‡§≤‡§ø‡§∏‡•ç‡§ü ‡§ï‡§∞‡•á‡§Ç &mdash; ‡§Æ‡•Å‡§´‡§º‡•ç‡§§</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ================= MY ADS ================= -->
-<section class="view" id="view-ads">
-  <div class="wrap">
-    <div class="section-label"><span data-i18n="my_listings">‡§Æ‡•á‡§∞‡•Ä ‡§≤‡§ø‡§∏‡•ç‡§ü‡§ø‡§Ç‡§ó</span></div>
-    <div id="myAdsList"></div>
-  </div>
-</section>
-
-<!-- ================= ORDERS ================= -->
-<section class="view" id="view-orders">
-  <div class="wrap">
-    <div class="section-label"><span data-i18n="my_orders">‡§Æ‡•á‡§∞‡•á ‡§ë‡§∞‡•ç‡§°‡§∞</span></div>
-    <div id="ordersList"></div>
-  </div>
-</section>
-
-<nav class="bottom">
-  <div class="nav-inner">
-    <button class="nav-btn active" data-nav="browse" onclick="go('browse')">
-      <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg>
-      <span data-i18n="nav_browse">‡§¨‡•ç‡§∞‡§æ‡§â‡§ú‡§º</span>
-    </button>
-    <button class="nav-btn" data-nav="sell" onclick="go('sell')">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>
-      <span data-i18n="nav_sell">‡§¨‡•á‡§ö‡•á‡§Ç</span>
-    </button>
-    <button class="nav-btn" data-nav="ads" onclick="go('ads')">
-      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h5"/></svg>
-      <span data-i18n="nav_ads">‡§Æ‡•á‡§∞‡•á ‡§µ‡§ø‡§ú‡•ç‡§û‡§æ‡§™‡§®</span>
-    </button>
-    <button class="nav-btn" data-nav="orders" onclick="go('orders')">
-      <svg viewBox="0 0 24 24"><path d="M6 2 4 6v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6l-2-4z"/><path d="M4 6h16M16 10a4 4 0 0 1-8 0"/></svg>
-      <span data-i18n="nav_orders">‡§ë‡§∞‡•ç‡§°‡§∞</span>
-    </button>
-  </div>
-</nav>
-
-<!-- product detail sheet -->
-<div class="overlay" id="overlay" onclick="if(event.target===this)closeSheet()">
-  <div class="sheet" id="sheet"></div>
-</div>
-
-<div class="toast" id="toast"></div>
-
-<!-- Belivery AI assistant floating button (v5.2) -->
-<button class="ai-fab" id="aiFab" onclick="openAI()" aria-label="Belivery AI Assistant">
-  <svg viewBox="0 0 24 24"><path d="M12 2l1.9 5.7L19.6 9.6l-4.4 3.9 1.1 5.9L12 16.6l-4.3 2.8 1.1-5.9-4.4-3.9 5.7-1.9L12 2zm7 3.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
-  <span>AI</span>
-</button>
-
-
-<footer class="pagefoot">
-  <div class="wrap">
-    <div class="mono" data-i18n="foot_mono">belivery&trade; &middot; v3</div>
-    <div style="margin-top:6px" data-i18n="footer_note">‡§¨‡•Ä‡§ü‡§æ ‡§∏‡§Ç‡§∏‡•ç‡§ï‡§∞‡§£ &mdash; ‡§∏‡§æ‡§∞‡§æ ‡§°‡•á‡§ü‡§æ ‡§Ü‡§™‡§ï‡•á ‡§¨‡•ç‡§∞‡§æ‡§â‡§ú‡§º‡§∞ (localStorage) ‡§Æ‡•á‡§Ç ‡§∏‡•á‡§µ ‡§π‡•ã‡§§‡§æ ‡§π‡•à, ‡§ï‡§π‡•Ä‡§Ç ‡§Ö‡§™‡§≤‡•ã‡§° ‡§®‡§π‡•Ä‡§Ç ‡§π‡•ã‡§§‡§æ‡•§ ‡§ï‡•ã‡§à ‡§Ö‡§∏‡§≤‡•Ä ‡§™‡•á‡§Æ‡•á‡§Ç‡§ü ‡§®‡§π‡•Ä‡§Ç ‡§π‡•ã‡§§‡§æ‡•§</div>
-  </div>
-</footer>
-
-<script>
-/* ============ data ============ */
-var CATEGORIES = ["Electronics","Mobiles","Vehicles","Furniture","Fashion","Books","Home","Sports","Others"];
-var EMOJIS = { "Electronics":"üéß", "Mobiles":"üì±", "Vehicles":"üõµ", "Furniture":"ü™ë", "Fashion":"üëï", "Books":"üìö", "Home":"üç≥", "Sports":"üèè", "Others":"üì¶" };
-var CAT_EMOJI_EXTRA = ["üíª","‚åö","üö≤","üõãÔ∏è","üëü","‚úèÔ∏è","üß∫","‚öΩ","üéÅ"];
-
-var SEED = [
-  {id:1, title:"Honda Activa 2019, 12,000 km", price:45000, cat:"Vehicles", cond:"Good", city:"Jaipur", phone:"98XXXXXX01", emoji:"üõµ", desc:"Single owner, insurance valid, serviced regularly. RC ready.", own:false, demo:true, ts:Date.now()-86400000},
-  {id:2, title:"iPhone 12, 64GB, blue", price:28500, cat:"Mobiles", cond:"Like new", city:"Delhi", phone:"98XXXXXX02", emoji:"üì±", desc:"Battery health 89%. Charger + cover included.", own:false, demo:true, ts:Date.now()-86400000*2},
-  {id:3, title:"Wooden study table", price:3200, cat:"Furniture", cond:"Used", city:"Lucknow", phone:"98XXXXXX03", emoji:"ü™ë", desc:"Sheesham wood, 4 saal purana but mazboot. Khud pick-up karna hoga.", own:false, demo:true, ts:Date.now()-86400000*3},
-  {id:4, title:"JBL headphones, wireless", price:2100, cat:"Electronics", cond:"Good", city:"Pune", phone:"98XXXXXX04", emoji:"üéß", desc:"Bass strong, charging cable included. 1.5 saal used.", own:false, demo:true, ts:Date.now()-86400000},
-  {id:5, title:"UPSC preparation books (set of 12)", price:1500, cat:"Books", cond:"Like new", city:"Patna", phone:"98XXXXXX05", emoji:"üìö", desc:"NCERT + standard reference set. Kuch highlights he, baaki clean.", own:false, demo:true, ts:Date.now()-86400000*4},
-  {id:6, title:"Bajaj mixer grinder 750W", price:1800, cat:"Home", cond:"Good", city:"Indore", phone:"98XXXXXX06", emoji:"üç≥", desc:"2 jars, chal raha he perfectly. Shifting ke wajah se bech raha hoon.", own:false, demo:true, ts:Date.now()-86400000},
-  {id:7, title:"Kirana monthly combo ‚Äî aata, chawal, dal", price:1450, cat:"Home", cond:"New", city:"Banda", phone:"98XXXXXX07", emoji:"üß∫", desc:"Banda ke local kirana se fresh monthly ration combo. Sirf Banda city me delivery.", own:false, demo:true, ts:Date.now()-86400000},
-  {id:8, title:"Hercules cycle, 26 inch", price:2400, cat:"Vehicles", cond:"Good", city:"Banda", phone:"98XXXXXX08", emoji:"üö≤", desc:"Banda city me hi delivery. Brakes naye lagwaye he, tyres theek haalat me.", own:false, demo:true, ts:Date.now()-86400000*2},
-  {id:9, title:"Kadhai-patele set, steel", price:850, cat:"Home", cond:"Used", city:"Banda", phone:"98XXXXXX09", emoji:"üç≥", desc:"2 saal used, bilkul theek haalat me. Civil Lines area se.", own:false, demo:true, ts:Date.now()-86400000},
-  {id:10, title:"Shuddh desi ghee, 1 kg (doodh se)", price:650, cat:"Home", cond:"New", city:"Atarra", phone:"98XXXXXX10", emoji:"üß∫", desc:"Atarra ke gaon ka doodh, ghar pe pakaya ghee. Banda district me delivery.", own:false, demo:true, ts:Date.now()-86400000}
-];
-
-function load(k, fallback){
-  try{ var v = JSON.parse(localStorage.getItem(k)); return Array.isArray(v) && v.length ? v : fallback; }
-  catch(e){ return fallback; }
-}
-var products = load("belivery_products_v3", SEED);
-var orders = load("belivery_orders", []);
-function save(){ localStorage.setItem("belivery_products_v3", JSON.stringify(products)); localStorage.setItem("belivery_orders", JSON.stringify(orders)); }
-save();
-
-
-/* ============ i18n ============ */
-var LANG = (function(){
-  var saved = localStorage.getItem("belivery_lang");
-  if(saved === "hi" || saved === "en") return saved;
-  return "hi";
-})();
-var I18N = {
-hi:{
-"search_ph":"‡§™‡•ç‡§∞‡•ã‡§°‡§ï‡•ç‡§ü ‡§ñ‡•ã‡§ú‡•á‡§Ç‚Ä¶ (‡§Æ‡•ã‡§¨‡§æ‡§á‡§≤, ‡§ï‡•Å‡§∞‡•ç‡§∏‡•Ä, ‡§ï‡§ø‡§§‡§æ‡§¨)",
-"loc_change":"‡§¨‡§¶‡§≤‡•á‡§Ç","loc_detect":"‡§≤‡•ã‡§ï‡•á‡§∂‡§® ‡§™‡§§‡§æ ‡§ï‡§∞‡•á‡§Ç","loc_searching":"‡§≤‡•ã‡§ï‡•á‡§∂‡§® ‡§¢‡•Ç‡§Å‡§¢ ‡§∞‡§π‡•á ‡§π‡•à‡§Ç‚Ä¶",
-"loc_sheet_title":"‡§Ö‡§™‡§®‡•Ä ‡§≤‡•ã‡§ï‡•á‡§∂‡§®",
-"loc_sheet_sub":"‡§≤‡§æ‡§á‡§µ ‡§≤‡•ã‡§ï‡•á‡§∂‡§® ‡§∏‡•á ‡§ê‡§™ ‡§ñ‡§º‡•Å‡§¶ ‡§Ü‡§™‡§ï‡•á ‡§∂‡§π‡§∞ ‡§ï‡•á ‡§®‡§æ‡§Æ ‡§™‡§∞ ‡§∏‡•á‡§ü ‡§π‡•ã ‡§ú‡§æ‡§è‡§ó‡•Ä ‚Äî ‡§ú‡•à‡§∏‡•á ‡§¨‡§æ‡§Ç‡§¶‡§æ ‡§™‡§∞ ‚Äú‡§¨‡§æ‡§Ç‡§¶‡§æ Delivery‚Äù‡•§",
-"loc_detect_btn":"‡§≤‡§æ‡§á‡§µ ‡§≤‡•ã‡§ï‡•á‡§∂‡§® ‡§∏‡•á ‡§™‡§§‡§æ ‡§ï‡§∞‡•á‡§Ç",
-"loc_all_btn":"‡§∏‡§¨ ‡§ú‡§ó‡§π ‚Äî ‡§∏‡§æ‡§∞‡•Ä ‡§≤‡§ø‡§∏‡•ç‡§ü‡§ø‡§Ç‡§ó ‡§¶‡§ø‡§ñ‡§æ‡§è‡§Å",
+          <label data-i18n="f_city">‡§∂‡§π‡§∞Ω±Öâï∞¯(ÄÄÄÄÄÄÄÄÄÄÒ•π¡’–Å•êÙâ•∏µç•—‰àÅ—Â¡îÙâ—ï·–àÅµÖ·±ïπù—†ÙàÃ¿àÅëÖ—Ñµ§ƒ·∏µ¡†Ùâ¡°}ç•—‰àÅ¡±Öçï°Ω±ëï»ÙãÇísÇñ#Çí„ÇñËÉÇí≥Çí˚ÇíÇíõÇí¯à¯(ÄÄÄÄÄÄÄÄÄÄÒë•ÿÅç±ÖÕÃÙâï…»àÅëÖ—Ñµ§ƒ·∏Ùâï……}ç•—‰à˚Çí€ÇíÁÇí¿ÉÇí»ÉÇíˇÇí[Çí£Çí¯ÉÇísÇíÛÇí√ÇñÇí√Çñ ÉÇíÁÇñ Ωë•ÿ¯(ÄÄÄÄÄÄÄÄΩë•ÿ¯(ÄÄÄÄÄÄÄÄÒë•ÿÅç±ÖÕÃÙâô•ï±êàÅ•êÙâòµ¡°Ωπîà¯(ÄÄÄÄÄÄÄÄÄÄÒ±Öâï∞ÅëÖ—Ñµ§ƒ·∏Ùâô}¡°Ωπîà˚ÇíõÇñÇíWÇí¯ÉÇíWÇí¯ÉÇíØÇíÛÇñ/Çí†Ä£Çí„ÇíˇÇí√Çñ7ÇíØÇíÅ	ï±•Ÿï…‰ÉÇíõÇñÇí[ÇñÇí_Çñ §Ω±Öâï∞¯(ÄÄÄÄÄÄÄÄÄÄÒ•π¡’–Å•êÙâ•∏µ¡°ΩπîàÅ—Â¡îÙâ—ï∞àÅµÖ·±ïπù—†Ùàƒ¿àÅ•π¡’—µΩëîÙâπ’µï…•åàÅëÖ—Ñµ§ƒ·∏µ¡†Ùâ¡°}¡°ΩπîàÅ¡±Öçï°Ω±ëï»Ùàƒ¿ÉÇíÇíÇíTÉÇíWÇí¯ÉÇíªÇñ/Çí≥Çí˚ÇíÇí»ÉÇí£ÇíÇí≥Çí¿à¯(ÄÄÄÄÄÄÄÄÄÄÒë•ÿÅç±ÖÕÃÙâï…»àÅëÖ—Ñµ§ƒ·∏Ùâï……}¡°Ωπîà¯ƒ¿ÉÇíÇíÇíTÉÇíWÇí¯ÉÇí„ÇíÁÇñ ÉÇíªÇñ/Çí≥Çí˚ÇíÇí»ÉÇí£ÇíÇí≥Çí¿ÉÇíÀÇíˇÇí[ÇñÇíΩë•ÿ¯(ÄÄÄÄÄÄÄÄΩë•ÿ¯(ÄÄÄÄÄÄÄÄÒë•ÿÅç±ÖÕÃÙâô•ï±êà¯(ÄÄÄÄÄÄÄÄÄÄÒ±Öâï∞ÅëÖ—Ñµ§ƒ·∏µ°—µ∞Ùâô}¡°Ω—ºà˚ÇíØÇíÛÇñ/ÇíÇñ,ÄÒÕµÖ±∞¯ôµëÖÕ†ÏÉÇíÇíÇíWÇí†ÉÇíkÇñÇí£ÇñÇíΩÕµÖ±∞¯Ω±Öâï∞¯(ÄÄÄÄÄÄÄÄÄÄÒë•ÿÅç±ÖÕÃÙâïµΩ©§µ¡•ç¨àÅ•êÙâïµΩ©•A•ç¨à¯Ωë•ÿ¯(ÄÄÄÄÄÄÄÄΩë•ÿ¯(ÄÄÄÄÄÄÄÄÒë•ÿÅç±ÖÕÃÙâô•ï±êàÅ•êÙâòµëïÕåà¯(ÄÄÄÄÄÄÄÄÄÄÒ±Öâï∞ÅëÖ—Ñµ§ƒ·∏µ°—µ∞Ùâô}ëïÕåà˚Çí◊ÇíˇÇí◊Çí√ÇíåÄÒÕµÖ±∞¯£Çí◊Çñ#ÇíWÇíÀÇñ7Çí´ÇíˇÇíT§ΩÕµÖ±∞¯Ω±Öâï∞¯(ÄÄÄÄÄÄÄÄÄÄÒ—ï·—Ö…ïÑÅ•êÙâ•∏µëïÕåàÅµÖ·±ïπù—†ÙàÃ¿¿àÅëÖ—Ñµ§ƒ·∏µ¡†Ùâ¡°}ëïÕåàÅ¡±Öçï°Ω±ëï»ÙãÇí´Çñ7Çí√Çñ/ÇíáÇíWÇñ7Çí|ÉÇíWÇñÉÇí≥Çí˚Çí√ÇñÉÇíªÇñÇíÉÇíWÇñÇílÉÇíÀÇíˇÇí[ÇñÇíäòà¯Ω—ï·—Ö…ïÑ¯(ÄÄÄÄÄÄÄÄΩë•ÿ¯(ÄÄÄÄÄÄÄÄÒâ’——Ω∏Å—Â¡îÙâÕ’âµ•–àÅç±ÖÕÃÙâÕ’âµ•–µâ—∏àÅëÖ—Ñµ§ƒ·∏ÙâÕ’âµ•–à˚ÇíÀÇíˇÇí„Çñ7Çí|ÉÇíWÇí√ÇñÇíÄôµëÖÕ†ÏÉÇíªÇñÇíØÇíÛÇñ7ÇíêΩâ’——Ω∏¯(ÄÄÄÄÄÄΩôΩ…¥¯(ÄÄÄÄΩë•ÿ¯(ÄÄΩë•ÿ¯(ΩÕïç—•Ω∏¯((Ñ¥¥ÄÙÙÙÙÙÙÙÙÙÙÙÙÙÙÙÙÙÅ5dÅLÄÙÙÙÙÙÙÙÙÙÙÙÙÙÙÙÙÙÄ¥¥¯(ÒÕïç—•Ω∏Åç±ÖÕÃÙâŸ•ï‹àÅ•êÙâŸ•ï‹µÖëÃà¯(ÄÄÒë•ÿÅç±ÖÕÃÙâ›…Ö¿à¯(ÄÄÄÄÒë•ÿÅç±ÖÕÃÙâÕïç—•Ω∏µ±Öâï∞à¯ÒÕ¡Ö∏ÅëÖ—Ñµ§ƒ·∏ÙâµÂ}±•Õ—•πùÃà˚ÇíªÇñÇí√Çñ ÉÇíÀÇíˇÇí„Çñ7ÇíÇíˇÇíÇí\ΩÕ¡Ö∏¯Ωë•ÿ¯(ÄÄÄÄÒë•ÿÅ•êÙâµÂëÕ1•Õ–à¯Ωë•ÿ¯(ÄÄΩë•ÿ¯(ΩÕïç—•Ω∏¯((Ñ¥¥ÄÙÙÙÙÙÙÙÙÙÙÙÙÙÙÙÙÙÅ=IILÄÙÙÙÙÙÙÙÙÙÙÙÙÙÙÙÙÙÄ¥¥¯(ÒÕïç—•Ω∏Åç±ÖÕÃÙâŸ•ï‹àÅ•êÙâŸ•ï‹µΩ…ëï…Ãà¯(ÄÄÒë•ÿÅç±ÖÕÃÙâ›…Ö¿à¯(ÄÄÄÄÒë•ÿÅç±ÖÕÃÙâÕïç—•Ω∏µ±Öâï∞à¯ÒÕ¡Ö∏ÅëÖ—Ñµ§ƒ·∏ÙâµÂ}Ω…ëï…Ãà˚ÇíªÇñÇí√ÇñÉÇíGÇí√Çñ7ÇíáÇí¿ΩÕ¡Ö∏¯Ωë•ÿ¯(ÄÄÄÄÒë•ÿÅ•êÙâΩ…ëï…Õ1•Õ–à¯Ωë•ÿ¯(ÄÄΩë•ÿ¯(ΩÕïç—•Ω∏¯((ÒπÖÿÅç±ÖÕÃÙââΩ——Ω¥à¯(ÄÄÒë•ÿÅç±ÖÕÃÙâπÖÿµ•ππï»à¯(ÄÄÄÄÒâ’——Ω∏Åç±ÖÕÃÙâπÖÿµâ—∏ÅÖç—•ŸîàÅëÖ—ÑµπÖÿÙââ…Ω›ÕîàÅΩπç±•ç¨Ùâùº†ùâ…Ω›Õîú§à¯(ÄÄÄÄÄÄÒÕŸúÅŸ•ï›	Ω‡Ùà¿Ä¿Ä»–Ä»–à¯Ò¡Ö—†ÅêÙâ¥ÃÄƒ¿Ä‰¥‹Ä‰Ä›ÿƒ¡ÑƒÄƒÄ¿Ä¿Äƒ¥ƒÄ≈†¥’ÿ¥›†¥Ÿÿ› —ÑƒÄƒÄ¿Ä¿Äƒ¥ƒ¥≈Ëàº¯ΩÕŸú¯(ÄÄÄÄÄÄÒÕ¡Ö∏ÅëÖ—Ñµ§ƒ·∏ÙâπÖŸ}â…Ω›Õîà˚Çí≥Çñ7Çí√Çí˚Çí'ÇísÇíΩÕ¡Ö∏¯(ÄÄÄÄΩâ’——Ω∏¯(ÄÄÄÄÒâ’——Ω∏Åç±ÖÕÃÙâπÖÿµâ—∏àÅëÖ—ÑµπÖÿÙâÕï±∞àÅΩπç±•ç¨Ùâùº†ùÕï±∞ú§à¯(ÄÄÄÄÄÄÒÕŸúÅŸ•ï›	Ω‡Ùà¿Ä¿Ä»–Ä»–à¯Òç•…ç±îÅç‡Ùàƒ»àÅç‰Ùàƒ»àÅ»Ùà‰àº¯Ò¡Ö—†ÅêÙâ4ƒ»Ä·ÿ·4‡Äƒ…†‡àº¯ΩÕŸú¯(ÄÄÄÄÄÄÒÕ¡Ö∏ÅëÖ—Ñµ§ƒ·∏ÙâπÖŸ}Õï±∞à˚Çí≥ÇñÇíkÇñÇíΩÕ¡Ö∏¯(ÄÄÄÄΩâ’——Ω∏¯(ÄÄÄÄÒâ’——Ω∏Åç±ÖÕÃÙâπÖÿµâ—∏àÅëÖ—ÑµπÖÿÙâÖëÃàÅΩπç±•ç¨Ùâùº†ùÖëÃú§à¯(ÄÄÄÄÄÄÒÕŸúÅŸ•ï›	Ω‡Ùà¿Ä¿Ä»–Ä»–à¯Ò…ïç–Å‡ÙàÃàÅ‰Ùà–àÅ›•ë—†Ùàƒ‡àÅ°ï•ù°–ÙàƒÿàÅ…‡Ùà»àº¯Ò¡Ö—†ÅêÙâ4ÃÄÂ†ƒ·4‡Äƒ—†‘àº¯ΩÕŸú¯(ÄÄÄÄÄÄÒÕ¡Ö∏ÅëÖ—Ñµ§ƒ·∏ÙâπÖŸ}ÖëÃà˚ÇíªÇñÇí√ÇñÉÇí◊ÇíˇÇísÇñ7Çí{Çí˚Çí´Çí†ΩÕ¡Ö∏¯(ÄÄÄÄΩâ’——Ω∏¯(ÄÄÄÄÒâ’——Ω∏Åç±ÖÕÃÙâπÖÿµâ—∏àÅëÖ—ÑµπÖÿÙâΩ…ëï…ÃàÅΩπç±•ç¨Ùâùº†ùΩ…ëï…Ãú§à¯(ÄÄÄÄÄÄÒÕŸúÅŸ•ï›	Ω‡Ùà¿Ä¿Ä»–Ä»–à¯Ò¡Ö—†ÅêÙâ4ÿÄ»Ä–ÄŸÿƒ—Ñ»Ä»Ä¿Ä¿Ä¿Ä»Ä…†ƒ…Ñ»Ä»Ä¿Ä¿Ä¿Ä»¥…XŸ∞¥»¥—Ëàº¯Ò¡Ö—†ÅêÙâ4–ÄŸ†ƒŸ4ƒÿÄƒ¡Ñ–Ä–Ä¿Ä¿Äƒ¥‡Ä¿àº¯ΩÕŸú¯(ÄÄÄÄÄÄÒÕ¡Ö∏ÅëÖ—Ñµ§ƒ·∏ÙâπÖŸ}Ω…ëï…Ãà˚ÇíGÇí√Çñ7ÇíáÇí¿ΩÕ¡Ö∏¯(ÄÄÄÄΩâ’——Ω∏¯(ÄÄΩë•ÿ¯(ΩπÖÿ¯(((Ñ¥¥ÄÙÙÙÙÙÙÙÙÙÙÙÙÅµïπ‘Åë…Ö›ï»Ä°ÿ‘∏–§ÄÙÙÙÙÙÙÙÙÙÙÙÙÄ¥¥¯(Òë•ÿÅç±ÖÕÃÙâµïπ‘µΩŸï…±Ö‰àÅ•êÙâµïπ’=Ÿï…±Ö‰àÅΩπç±•ç¨Ùâ•ò°ïŸïπ–π—Ö…ùï–ÙÙı—°•Ã•ç±ΩÕï5ïπ‘†§à¯Ωë•ÿ¯(ÒÖÕ•ëîÅç±ÖÕÃÙâµïπ‘µë…Ö›ï»àÅ•êÙâµïπ’…Ö›ï»à¯(ÄÄÒë•ÿÅç±ÖÕÃÙâµïπ‘µ°ïÖêà¯(ÄÄÄÄÒë•ÿÅç±ÖÕÃÙâ¥µ±Ωùºà¯ÒÕ¡Ö∏Åç±ÖÕÃÙâàƒà˘âîΩÕ¡Ö∏˘±•ÿÒÕ¡Ö∏Åç±ÖÕÃÙâàƒà˘ï…‰ΩÕ¡Ö∏¯ÒÕ’¿ÅÕ—Â±îÙâôΩπ–µÕ•ÈîËÂ¡‡ÌôΩπ–µ›ï•ù°–Ëÿ¿¿à¯ô—…ÖëîÏΩÕ’¿¯Ωë•ÿ¯(ÄÄÄÄÒâ’——Ω∏Åç±ÖÕÃÙâµïπ‘µç±ΩÕîàÅΩπç±•ç¨Ùâç±ΩÕï5ïπ‘†§àÅÖ…•Ñµ±Öâï∞Ùâ±ΩÕîÅµïπ‘à¯ô—•µïÃÏΩâ’——Ω∏¯(ÄÄΩë•ÿ¯(ÄÄÒë•ÿÅç±ÖÕÃÙâµïπ‘µ±•Õ–à¯(ÄÄÄÄÒâ’——Ω∏Åç±ÖÕÃÙâµïπ‘µ•—ï¥àÅΩπç±•ç¨Ùâµïπ’º†ùâ…Ω›Õîú§à¯ÒÕ¡Ö∏Åç±ÖÕÃÙâµ§à˚¬~>ÄΩÕ¡Ö∏¯ÒÕ¡Ö∏ÅëÖ—Ñµ§ƒ·∏Ùâµïπ’}°Ωµîà˚ÇíÁÇñ/Çí∏ΩÕ¡Ö∏¯Ωâ’——Ω∏¯(ÄÄÄÄÒâ’——Ω∏Åç±ÖÕÃÙâµïπ‘µ•—ï¥àÅΩπç±•ç¨Ùâµïπ’º†ùÕï±∞ú§à¯ÒÕ¡Ö∏Åç±ÖÕÃÙâµ§à˚äzTΩÕ¡Ö∏¯ÒÕ¡Ö∏ÅëÖ—Ñµ§ƒ·∏Ùâµïπ’}Õï±∞à˚Çí£Çí ÉÇíÀÇíˇÇí„Çñ7ÇíÇíˇÇíÇí\ÉÇí≥Çí£Çí˚Çí?ÇíΩÕ¡Ö∏¯Ωâ’——Ω∏¯(ÄÄÄÄÒâ’——Ω∏Åç±ÖÕÃÙâµïπ‘µ•—ï¥àÅΩπç±•ç¨Ùâµïπ’º†ùÖëÃú§à¯ÒÕ¡Ö∏Åç±ÖÕÃÙâµ§à˚¬~NàΩÕ¡Ö∏¯ÒÕ¡Ö∏ÅëÖ—Ñµ§ƒ·∏Ùâµïπ’}ÖëÃà˚ÇíªÇñÇí√ÇñÉÇí◊ÇíˇÇísÇñ7Çí{Çí˚Çí´Çí†ΩÕ¡Ö∏¯Ωâ’——Ω∏¯(ÄÄÄÄÒâ’——Ω∏Åç±ÖÕÃÙâµïπ‘µ•—ï¥àÅΩπç±•ç¨Ùâµïπ’º†ùΩ…ëï…Ãú§à¯ÒÕ¡Ö∏Åç±ÖÕÃÙâµ§à˚¬~nHΩÕ¡Ö∏¯ÒÕ¡Ö∏ÅëÖ—Ñµ§ƒ·∏Ùâµïπ’}Ω…ëï…Ãà˚ÇíªÇñÇí√ÇñÉÇíGÇí√Çñ7ÇíáÇí¿ΩÕ¡Ö∏¯Ωâ’——Ω∏¯(ÄÄÄÄÒë•ÿÅç±ÖÕÃÙâµïπ‘µÕï¿à¯Ωë•ÿ¯(ÄÄÄÄÒâ’——Ω∏Åç±ÖÕÃÙâµïπ‘µ•—ï¥àÅΩπç±•ç¨ÙâΩ¡ïπâΩ’–†§à¯ÒÕ¡Ö∏Åç±ÖÕÃÙâµ§à˚äÁæ‚<ΩÕ¡Ö∏¯ÒÕ¡Ö∏ÅëÖ—Ñµ§ƒ·∏Ùâµïπ’}ÖâΩ’–à˘	ï±•Ÿï…‰ÉÇíWÇñÉÇí≥Çí˚Çí√ÇñÉÇíªÇñÇíΩÕ¡Ö∏¯Ωâ’——Ω∏¯(ÄÄÄÄÒâ’——Ω∏Åç±ÖÕÃÙâµïπ‘µ•—ï¥àÅΩπç±•ç¨ÙâçΩπ—Öç—	ï±•Ÿï…‰†§à¯ÒÕ¡Ö∏Åç±ÖÕÃÙâµ§à˚¬~NxΩÕ¡Ö∏¯ÒÕ¡Ö∏ÅëÖ—Ñµ§ƒ·∏Ùâµïπ’}çΩπ—Öç–à˚Çí„ÇíÇí´Çí√Çñ7ÇíTÉÇíWÇí√ÇñÇíΩÕ¡Ö∏¯Ωâ’——Ω∏¯(ÄÄÄÄÒâ’——Ω∏Åç±ÖÕÃÙâµïπ‘µ•—ï¥àÅΩπç±•ç¨Ùâµïπ’%πÕ—Ö±∞†§à¯ÒÕ¡Ö∏Åç±ÖÕÃÙâµ§à˚¬~N»ΩÕ¡Ö∏¯ÒÕ¡Ö∏ÅëÖ—Ñµ§ƒ·∏Ùâµïπ’}•πÕ—Ö±∞à˚ÇíCÇí®ÉÇíÇíÇí„Çñ7ÇíÇñ'Çí»ÉÇíWÇí√ÇñÇíΩÕ¡Ö∏¯Ωâ’——Ω∏¯(ÄÄÄÄÒâ’——Ω∏Åç±ÖÕÃÙâµïπ‘µ•—ï¥àÅΩπç±•ç¨ÙâÕ°Ö…ï	ï±•Ÿï…‰†§à¯ÒÕ¡Ö∏Åç±ÖÕÃÙâµ§à˚¬~R\ΩÕ¡Ö∏¯ÒÕ¡Ö∏ÅëÖ—Ñµ§ƒ·∏Ùâµïπ’}Õ°Ö…îà˚Çí€ÇñÇíøÇí¿ÉÇíWÇí√ÇñÇíΩÕ¡Ö∏¯Ωâ’——Ω∏¯(ÄÄÄÄÒë•ÿÅç±ÖÕÃÙâµïπ‘µÕï¿à¯Ωë•ÿ¯(ÄÄÄÄÒâ’——Ω∏Åç±ÖÕÃÙâµïπ‘µ•—ï¥àÅΩπç±•ç¨Ùâ—Ωùù±ï1Öπú†§Ìç±ΩÕï5ïπ‘†§à¯ÒÕ¡Ö∏Åç±ÖÕÃÙâµ§à˚¬~RêΩÕ¡Ö∏¯ÒÕ¡Ö∏ÅëÖ—Ñµ§ƒ·∏Ùâµïπ’}±Öπúà˚Çí∑Çí˚ÇíﬂÇí¯ÉÇí≥ÇíõÇíÀÇñÇíΩÕ¡Ö∏¯ÒÕ¡Ö∏Åç±ÖÕÃÙâµÑà˘8ÄºÉÇíÁÇíˇÇíΩÕ¡Ö∏¯Ωâ’——Ω∏¯(ÄÄΩë•ÿ¯(ÄÄÒë•ÿÅç±ÖÕÃÙâµïπ‘µôΩΩ–àÅëÖ—Ñµ§ƒ·∏ÙâôΩΩ—}µΩπºà˘âï±•Ÿï…‰ô—…ÖëîÏÄôµ•ëëΩ–ÏÅÿ‘∏–Ωë•ÿ¯(ΩÖÕ•ëî¯((Ñ¥¥Å¡…Ωë’ç–Åëï—Ö•∞ÅÕ°ïï–Ä¥¥¯(Òë•ÿÅç±ÖÕÃÙâΩŸï…±Ö‰àÅ•êÙâΩŸï…±Ö‰àÅΩπç±•ç¨Ùâ•ò°ïŸïπ–π—Ö…ùï–ÙÙı—°•Ã•ç±ΩÕïM°ïï–†§à¯(ÄÄÒë•ÿÅç±ÖÕÃÙâÕ°ïï–àÅ•êÙâÕ°ïï–à¯Ωë•ÿ¯(Ωë•ÿ¯((Òë•ÿÅç±ÖÕÃÙâ—ΩÖÕ–àÅ•êÙâ—ΩÖÕ–à¯Ωë•ÿ¯((Ñ¥¥Å	ï±•Ÿï…‰Å$ÅÖÕÕ•Õ—Öπ–Åô±ΩÖ—•πúÅâ’——Ω∏Ä°ÿ‘∏»§Ä¥¥¯(Òâ’——Ω∏Åç±ÖÕÃÙâÖ§µôÖààÅ•êÙâÖ•ÖààÅΩπç±•ç¨ÙâΩ¡ïπ$†§àÅÖ…•Ñµ±Öâï∞Ùâ	ï±•Ÿï…‰Å$ÅÕÕ•Õ—Öπ–à¯(ÄÄÒÕŸúÅŸ•ï›	Ω‡Ùà¿Ä¿Ä»–Ä»–à¯Ò¡Ö—†ÅêÙâ4ƒ»Ä…∞ƒ∏‰Ä‘∏›0ƒ‰∏ÿÄ‰∏Ÿ∞¥–∏–ÄÃ∏‰Äƒ∏ƒÄ‘∏Â0ƒ»Äƒÿ∏Ÿ∞¥–∏ÃÄ»∏‡Äƒ∏ƒ¥‘∏‰¥–∏–¥Ã∏‰Ä‘∏‹¥ƒ∏Â0ƒ»Ä…È¥‹ÄÃ∏’Ñƒ∏»Äƒ∏»Ä¿ÄƒÄƒÄ¿Ä»∏–Äƒ∏»Äƒ∏»Ä¿Ä¿ÄƒÄ¿¥»∏—Ëàº¯ΩÕŸú¯(ÄÄÒÕ¡Ö∏˘$ΩÕ¡Ö∏¯(Ωâ’——Ω∏¯(((ÒôΩΩ—ï»Åç±ÖÕÃÙâ¡ÖùïôΩΩ–à¯(ÄÄÒë•ÿÅç±ÖÕÃÙâ›…Ö¿à¯(ÄÄÄÄÒë•ÿÅç±ÖÕÃÙâµΩπºàÅëÖ—Ñµ§ƒ·∏ÙâôΩΩ—}µΩπºà˘âï±•Ÿï…‰ô—…ÖëîÏÄôµ•ëëΩ–ÏÅÿÃΩë•ÿ¯(ÄÄÄÄÒë•ÿÅÕ—Â±îÙâµÖ…ù•∏µ—Ω¿ËŸ¡‡àÅëÖ—Ñµ§ƒ·∏ÙâôΩΩ—ï…}πΩ—îà˚Çí≥ÇñÇíÇí¯ÉÇí„ÇíÇí„Çñ7ÇíWÇí√ÇíåÄôµëÖÕ†ÏÉÇí„Çí˚Çí√Çí¯ÉÇíáÇñÇíÇí¯ÉÇíÇí´ÇíWÇñÉÇí≥Çñ7Çí√Çí˚Çí'ÇísÇíÛÇí¿Ä°±ΩçÖ±M—Ω…Öùî§ÉÇíªÇñÇíÉÇí„ÇñÇí‘ÉÇíÁÇñ/ÇíìÇí¯ÉÇíÁÇñ ∞ÉÇíWÇíÁÇñÇíÉÇíÇí´ÇíÀÇñ/ÇíÑÉÇí£ÇíÁÇñÇíÉÇíÁÇñ/ÇíìÇí˚ÇñêÉÇíWÇñ/Çí ÉÇíÇí„ÇíÀÇñ ÉÇí´ÇñÇíªÇñÇíÇí|ÉÇí£ÇíÁÇñÇíÉÇíÁÇñ/ÇíìÇí˚ÇñêΩë•ÿ¯(ÄÄΩë•ÿ¯(ΩôΩΩ—ï»¯((ÒÕç…•¡–¯(º®ÄÙÙÙÙÙÙÙÙÙÙÙÙÅëÖ—ÑÄÙÙÙÙÙÙÙÙÙÙÙÙÄ®º)ŸÖ»ÅQ=I%LÄÙÅlâ±ïç—…Ωπ•çÃà∞â5Ωâ•±ïÃà∞âYï°•ç±ïÃà∞â’…π•—’…îà∞âÖÕ°•Ω∏à∞â	ΩΩ≠Ãà∞â!Ωµîà∞âM¡Ω…—Ãà∞â=—°ï…ÃâtÏ)ŸÖ»Å5=)%LÄÙÅÏÄâ±ïç—…Ωπ•çÃàËã¬~:úà∞Äâ5Ωâ•±ïÃàËã¬~Nƒà∞ÄâYï°•ç±ïÃàËã¬~n‘à∞Äâ’…π•—’…îàËã¬~™Dà∞ÄâÖÕ°•Ω∏àËã¬~FTà∞Äâ	ΩΩ≠ÃàËã¬~Nhà∞Äâ!ΩµîàËã¬~6Ãà∞ÄâM¡Ω…—ÃàËã¬~><à∞Äâ=—°ï…ÃàËã¬~NòàÅÙÏ)ŸÖ»ÅQ}5=)%}aQIÄÙÅlã¬~JÏà∞ãä2hà∞ã¬~j»à∞ã¬~n/æ‚<à∞ã¬~F|à∞ãär?æ‚<à∞ã¬~ûËà∞ãäjÙà∞ã¬~:âtÏ()ŸÖ»ÅMÄÙÅl(ÄÅÌ•êËƒ∞Å—•—±îËâ!ΩπëÑÅç—•ŸÑÄ»¿ƒ‰∞Äƒ»∞¿¿¿Å≠¥à∞Å¡…•çîË–‘¿¿¿∞ÅçÖ–ËâYï°•ç±ïÃà∞ÅçΩπêËâΩΩêà∞Åç•—‰Ëâ)Ö•¡’»à∞Å¡°ΩπîËà‰·aaaaa`¿ƒà∞ÅïµΩ©§Ëã¬~n‘à∞ÅëïÕåËâM•πù±îÅΩ›πï»∞Å•πÕ’…ÖπçîÅŸÖ±•ê∞ÅÕï…Ÿ•çïêÅ…ïù’±Ö…±‰∏ÅIÅ…ïÖë‰∏à∞ÅΩ›∏ÈôÖ±Õî∞ÅëïµºÈ—…’î∞Å—ÃÈÖ—îππΩ‹†§¥‡ÿ–¿¿¿¿¡Ù∞(ÄÅÌ•êË»∞Å—•—±îËâ•A°ΩπîÄƒ»∞Äÿ—∞Åâ±’îà∞Å¡…•çîË»‡‘¿¿∞ÅçÖ–Ëâ5Ωâ•±ïÃà∞ÅçΩπêËâ1•≠îÅπï‹à∞Åç•—‰Ëâï±°§à∞Å¡°ΩπîËà‰·aaaaa`¿»à∞ÅïµΩ©§Ëã¬~Nƒà∞ÅëïÕåËâ	Ö——ï…‰Å°ïÖ±—†Ä‡‰î∏Å°Ö…ùï»Ä¨ÅçΩŸï»Å•πç±’ëïê∏à∞ÅΩ›∏ÈôÖ±Õî∞ÅëïµºÈ—…’î∞Å—ÃÈÖ—îππΩ‹†§¥‡ÿ–¿¿¿¿¿®…Ù∞(ÄÅÌ•êËÃ∞Å—•—±îËâ]ΩΩëï∏ÅÕ—’ë‰Å—Öâ±îà∞Å¡…•çîËÃ»¿¿∞ÅçÖ–Ëâ’…π•—’…îà∞ÅçΩπêËâUÕïêà∞Åç•—‰Ëâ1’ç≠πΩ‹à∞Å¡°ΩπîËà‰·aaaaa`¿Ãà∞ÅïµΩ©§Ëã¬~™Dà∞ÅëïÕåËâM°ïïÕ°Ö¥Å›ΩΩê∞Ä–ÅÕÖÖ∞Å¡’…ÖπÑÅâ’–ÅµÖÈâΩΩ–∏Å-°’êÅ¡•ç¨µ’¿Å≠Ö…πÑÅ°ΩùÑ∏à∞ÅΩ›∏ÈôÖ±Õî∞ÅëïµºÈ—…’î∞Å—ÃÈÖ—îππΩ‹†§¥‡ÿ–¿¿¿¿¿®ÕÙ∞(ÄÅÌ•êË–∞Å—•—±îËâ)	0Å°ïÖë¡°ΩπïÃ∞Å›•…ï±ïÕÃà∞Å¡…•çîË»ƒ¿¿∞ÅçÖ–Ëâ±ïç—…Ωπ•çÃà∞ÅçΩπêËâΩΩêà∞Åç•—‰ËâA’πîà∞Å¡°ΩπîËà‰·aaaaa`¿–à∞ÅïµΩ©§Ëã¬~:úà∞ÅëïÕåËâ	ÖÕÃÅÕ—…Ωπú∞Åç°Ö…ù•πúÅçÖâ±îÅ•πç±’ëïê∏Äƒ∏‘ÅÕÖÖ∞Å’Õïê∏à∞ÅΩ›∏ÈôÖ±Õî∞ÅëïµºÈ—…’î∞Å—ÃÈÖ—îππΩ‹†§¥‡ÿ–¿¿¿¿¡Ù∞(ÄÅÌ•êË‘∞Å—•—±îËâUAMÅ¡…ï¡Ö…Ö—•Ω∏ÅâΩΩ≠ÃÄ°Õï–ÅΩòÄƒ»§à∞Å¡…•çîËƒ‘¿¿∞ÅçÖ–Ëâ	ΩΩ≠Ãà∞ÅçΩπêËâ1•≠îÅπï‹à∞Åç•—‰ËâAÖ—πÑà∞Å¡°ΩπîËà‰·aaaaa`¿‘à∞ÅïµΩ©§Ëã¬~Nhà∞ÅëïÕåËâ9IPÄ¨ÅÕ—ÖπëÖ…êÅ…ïôï…ïπçîÅÕï–∏Å-’ç†Å°•ù°±•ù°—ÃÅ°î∞ÅâÖÖ≠§Åç±ïÖ∏∏à∞ÅΩ›∏ÈôÖ±Õî∞ÅëïµºÈ—…’î∞Å—ÃÈÖ—îππΩ‹†§¥‡ÿ–¿¿¿¿¿®—Ù∞(ÄÅÌ•êËÿ∞Å—•—±îËâ	Ö©Ö®Åµ•·ï»Åù…•πëï»Ä‹‘¡\à∞Å¡…•çîËƒ‡¿¿∞ÅçÖ–Ëâ!Ωµîà∞ÅçΩπêËâΩΩêà∞Åç•—‰Ëâ%πëΩ…îà∞Å¡°ΩπîËà‰·aaaaa`¿ÿà∞ÅïµΩ©§Ëã¬~6Ãà∞ÅëïÕåËà»Å©Ö…Ã∞Åç°Ö∞Å…Ö°ÑÅ°îÅ¡ï…ôïç—±‰∏ÅM°•ô—•πúÅ≠îÅ›Ö©Ö†ÅÕîÅâïç†Å…Ö°ÑÅ°ΩΩ∏∏à∞ÅΩ›∏ÈôÖ±Õî∞ÅëïµºÈ—…’î∞Å—ÃÈÖ—îππΩ‹†§¥‡ÿ–¿¿¿¿¡Ù∞(ÄÅÌ•êË‹∞Å—•—±îËâ-•…ÖπÑÅµΩπ—°±‰ÅçΩµâºÉäPÅÖÖ—Ñ∞Åç°Ö›Ö∞∞ÅëÖ∞à∞Å¡…•çîËƒ–‘¿∞ÅçÖ–Ëâ!Ωµîà∞ÅçΩπêËâ9ï‹à∞Åç•—‰Ëâ	ÖπëÑà∞Å¡°ΩπîËà‰·aaaaa`¿‹à∞ÅïµΩ©§Ëã¬~ûËà∞ÅëïÕåËâ	ÖπëÑÅ≠îÅ±ΩçÖ∞Å≠•…ÖπÑÅÕîÅô…ïÕ†ÅµΩπ—°±‰Å…Ö—•Ω∏ÅçΩµâº∏ÅM•…òÅ	ÖπëÑÅç•—‰ÅµîÅëï±•Ÿï…‰∏à∞ÅΩ›∏ÈôÖ±Õî∞ÅëïµºÈ—…’î∞Å—ÃÈÖ—îππΩ‹†§¥‡ÿ–¿¿¿¿¡Ù∞(ÄÅÌ•êË‡∞Å—•—±îËâ!ï…ç’±ïÃÅçÂç±î∞Ä»ÿÅ•πç†à∞Å¡…•çîË»–¿¿∞ÅçÖ–ËâYï°•ç±ïÃà∞ÅçΩπêËâΩΩêà∞Åç•—‰Ëâ	ÖπëÑà∞Å¡°ΩπîËà‰·aaaaa`¿‡à∞ÅïµΩ©§Ëã¬~j»à∞ÅëïÕåËâ	ÖπëÑÅç•—‰ÅµîÅ°§Åëï±•Ÿï…‰∏Å	…Ö≠ïÃÅπÖÂîÅ±Öù›ÖÂîÅ°î∞Å—Â…ïÃÅ—°ïï¨Å°ÖÖ±Ö–Åµî∏à∞ÅΩ›∏ÈôÖ±Õî∞ÅëïµºÈ—…’î∞Å—ÃÈÖ—îππΩ‹†§¥‡ÿ–¿¿¿¿¿®…Ù∞(ÄÅÌ•êË‰∞Å—•—±îËâ-Öë°Ö§µ¡Ö—ï±îÅÕï–∞ÅÕ—ïï∞à∞Å¡…•çîË‡‘¿∞ÅçÖ–Ëâ!Ωµîà∞ÅçΩπêËâUÕïêà∞Åç•—‰Ëâ	ÖπëÑà∞Å¡°ΩπîËà‰·aaaaa`¿‰à∞ÅïµΩ©§Ëã¬~6Ãà∞ÅëïÕåËà»ÅÕÖÖ∞Å’Õïê∞Åâ•±≠’∞Å—°ïï¨Å°ÖÖ±Ö–Åµî∏Å•Ÿ•∞Å1•πïÃÅÖ…ïÑÅÕî∏à∞ÅΩ›∏ÈôÖ±Õî∞ÅëïµºÈ—…’î∞Å—ÃÈÖ—îππΩ‹†§¥‡ÿ–¿¿¿¿¡Ù∞(ÄÅÌ•êËƒ¿∞Å—•—±îËâM°’ëë†ÅëïÕ§Åù°ïïú∞ÄƒÅ≠úÄ°ëΩΩëë†ÅÕî§à∞Å¡…•çîËÿ‘¿∞ÅçÖ–Ëâ!Ωµîà∞ÅçΩπêËâ9ï‹à∞Åç•—‰Ëâ—Ö……Ñà∞Å¡°ΩπîËà‰·aaaaaa`ƒ¿à∞ÅïµΩ©§Ëã¬~ûËà∞ÅëïÕåËâ—Ö……ÑÅ≠îÅùÖΩ∏Å≠ÑÅëΩΩë†∞Åù°Ö»Å¡îÅ¡Ö≠ÖÂÑÅù°ïî∏Å	ÖπëÑÅë•Õ—…•ç–ÅµîÅëï±•Ÿï…‰∏à∞ÅΩ›∏ÈôÖ±Õî∞ÅëïµºÈ—…’î∞Å—ÃÈÖ—îππΩ‹†§¥‡ÿ–¿¿¿¿¡Ù)tÏ()ô’πç—•Ω∏Å±ΩÖê°¨∞ÅôÖ±±âÖç¨•Ï(ÄÅ—…ÂÏÅŸÖ»ÅÿÄÙÅ)M=8π¡Ö…Õî°±ΩçÖ±M—Ω…Öùîπùï—%—ï¥°¨§§ÏÅ…ï—’…∏Å……Ö‰π•Õ……Ö‰°ÿ§ÄòòÅÿπ±ïπù—†Ä¸ÅÿÄËÅôÖ±±âÖç¨ÏÅÙ(ÄÅçÖ—ç†°î•ÏÅ…ï—’…∏ÅôÖ±±âÖç¨ÏÅÙ)Ù)ŸÖ»Å¡…Ωë’ç—ÃÄÙÅ±ΩÖê†ââï±•Ÿï…Â}¡…Ωë’ç—Õ}ÿÃà∞ÅM§Ï)ŸÖ»ÅΩ…ëï…ÃÄÙÅ±ΩÖê†ââï±•Ÿï…Â}Ω…ëï…Ãà∞Åmt§Ï)ô’πç—•Ω∏ÅÕÖŸî†•ÏÅ±ΩçÖ±M—Ω…ÖùîπÕï—%—ï¥†ââï±•Ÿï…Â}¡…Ωë’ç—Õ}ÿÃà∞Å)M=8πÕ—…•πù•ô‰°¡…Ωë’ç—Ã§§ÏÅ±ΩçÖ±M—Ω…ÖùîπÕï—%—ï¥†ââï±•Ÿï…Â}Ω…ëï…Ãà∞Å)M=8πÕ—…•πù•ô‰°Ω…ëï…Ã§§ÏÅÙ)ÕÖŸî†§Ï(((º®ÄÙÙÙÙÙÙÙÙÙÙÙÙÅ§ƒ·∏ÄÙÙÙÙÙÙÙÙÙÙÙÙÄ®º)ŸÖ»Å19ÄÙÄ°ô’πç—•Ω∏†•Ï(ÄÅŸÖ»ÅÕÖŸïêÄÙÅ±ΩçÖ±M—Ω…Öùîπùï—%—ï¥†ââï±•Ÿï…Â}±Öπúà§Ï(ÄÅ•ò°ÕÖŸïêÄÙÙÙÄâ°§àÅÒÅÕÖŸïêÄÙÙÙÄâï∏à§Å…ï—’…∏ÅÕÖŸïêÏ(ÄÅ…ï—’…∏Äâ°§àÏ)Ù§†§Ï)ŸÖ»Å$ƒ·8ÄÙÅÏ)°§ÈÏ(âÕïÖ…ç°}¡†àËãÇí´Çñ7Çí√Çñ/ÇíáÇíWÇñ7Çí|ÉÇí[Çñ/ÇísÇñÇíäòÄ£ÇíªÇñ/Çí≥Çí˚ÇíÇí»∞ÉÇíWÇñÇí√Çñ7Çí„Çñ ∞ÉÇíWÇíˇÇíìÇí˚Çí∞§à∞(â±Ωç}ç°ÖπùîàËãÇí≥ÇíõÇíÀÇñÇíà∞â±Ωç}ëï—ïç–àËãÇíÀÇñ/ÇíWÇñÇí€Çí†ÉÇí´ÇíìÇí¯ÉÇíWÇí√ÇñÇíà∞â±Ωç}ÕïÖ…ç°•πúàËãÇíÀÇñ/ÇíWÇñÇí€Çí†ÉÇíãÇñÇíÇíàÉÇí√ÇíÁÇñÉÇíÁÇñ#Çíäòà∞(â±Ωç}Õ°ïï—}—•—±îàËãÇíÇí´Çí£Çñ ÉÇíÀÇñ/ÇíWÇñÇí€Çí†à∞(â±Ωç}Õ°ïï—}Õ’ààËãÇíÀÇí˚ÇíÇí‘ÉÇíÀÇñ/ÇíWÇñÇí€Çí†ÉÇí„ÇñÉÇíCÇí®ÉÇí[ÇíÛÇñÇíòÉÇíÇí´ÇíWÇñÉÇí€ÇíÁÇí¿ÉÇíWÇñÉÇí£Çí˚Çí∏ÉÇí´Çí¿ÉÇí„ÇñÇí|ÉÇíÁÇñ,ÉÇísÇí˚Çí?Çí_Çñ ÉäPÉÇísÇñ#Çí„ÇñÉÇí≥Çí˚ÇíÇíõÇí¯ÉÇí´Çí¿ÉäsÇí≥Çí˚ÇíÇíõÇí¯Åï±•Ÿï…ÁäwÇñêà∞(â±Ωç}ëï—ïç—}â—∏àËãÇíÀÇí˚ÇíÇí‘ÉÇíÀÇñ/ÇíWÇñÇí€Çí†ÉÇí„ÇñÉÇí´ÇíìÇí¯ÉÇíWÇí√ÇñÇíà∞(â±Ωç}Ö±±}â—∏àËãÇí„Çí∞ÉÇísÇí_Çí‰ÉäPÉÇí„Çí˚Ç∞‡•Ä ‡§≤‡§ø‡§∏‡•ç‡§ü‡§ø‡§Ç‡§ó ‡§¶‡§ø‡§ñ‡§æ‡§è‡§Å",
 "loc_sheet_note":"‡§ë‡§ü‡•ã-‡§°‡§ø‡§ü‡•á‡§ï‡•ç‡§ü ‡§ï‡•á ‡§≤‡§ø‡§è ‡§¨‡•ç‡§∞‡§æ‡§â‡§ú‡§º‡§∞ ‡§ï‡•ã ‡§≤‡•ã‡§ï‡•á‡§∂‡§® ‡§ï‡•Ä ‡§Ö‡§®‡•Å‡§Æ‡§§‡§ø ‡§ö‡§æ‡§π‡§ø‡§è‡•§ ‡§ï‡§æ‡§Æ ‡§® ‡§ï‡§∞‡•á ‡§§‡•ã ‡§®‡•Ä‡§ö‡•á ‡§≤‡§ø‡§∏‡•ç‡§ü ‡§∏‡•á ‡§ö‡•Å‡§® ‡§≤‡•á‡§Ç‡•§",
 "t_no_geo":"‡§á‡§∏ ‡§¨‡•ç‡§∞‡§æ‡§â‡§ú‡§º‡§∞ ‡§Æ‡•á‡§Ç ‡§≤‡•ã‡§ï‡•á‡§∂‡§® ‡§∏‡§™‡•ã‡§∞‡•ç‡§ü ‡§®‡§π‡•Ä‡§Ç ‡§π‡•à",
 "t_loc_set":"‡§≤‡•ã‡§ï‡•á‡§∂‡§® ‡§∏‡•á‡§ü: ",
@@ -510,184 +466,7 @@ hi:{
 "t_listed":"‡§≤‡§ø‡§∏‡•ç‡§ü‡§ø‡§Ç‡§ó ‡§≤‡§æ‡§á‡§µ ‡§π‡•ã ‡§ó‡§à ‚Äî ‡§Æ‡•á‡§∞‡•á ‡§µ‡§ø‡§ú‡•ç‡§û‡§æ‡§™‡§® ‡§Æ‡•á‡§Ç ‡§¶‡•á‡§ñ‡•á‡§Ç",
 "empty_ads":"‡§Ü‡§™‡§ï‡•Ä ‡§ï‡•ã‡§à ‡§≤‡§ø‡§∏‡•ç‡§ü‡§ø‡§Ç‡§ó ‡§®‡§π‡•Ä‡§Ç ‡§π‡•à‡•§<br>‡§¨‡•á‡§ö‡•á‡§Ç ‡§ü‡•à‡§¨ ‡§™‡§∞ ‡§ú‡§æ‡§ï‡§∞ ‡§™‡§π‡§≤‡§æ ‡§™‡•ç‡§∞‡•ã‡§°‡§ï‡•ç‡§ü ‡§≤‡§ø‡§∏‡•ç‡§ü ‡§ï‡§∞‡•á‡§Ç‡•§",
 "st_live":"‡§≤‡§æ‡§á‡§µ","btn_delete":"‡§π‡§ü‡§æ‡§è‡§Å",
-"t_confirm_del":"‡§Ø‡§π ‡§≤‡§ø‡§∏‡•ç‡§ü‡§ø‡§Ç‡§ó ‡§π‡§ü‡§æ‡§®‡•Ä ‡§π‡•à?",
-"t_deleted":"‡§≤‡§ø‡§∏‡•ç‡§ü‡§ø‡§Ç‡§ó ‡§π‡§ü‡§æ ‡§¶‡•Ä ‡§ó‡§à",
-"empty_orders":"‡§Ö‡§≠‡•Ä ‡§ï‡•ã‡§à ‡§ë‡§∞‡•ç‡§°‡§∞ ‡§®‡§π‡•Ä‡§Ç‡•§<br>‡§ï‡§ø‡§∏‡•Ä ‡§™‡•ç‡§∞‡•ã‡§°‡§ï‡•ç‡§ü ‡§™‡§∞ ‚Äú‡§Ö‡§≠‡•Ä ‡§ñ‡§º‡§∞‡•Ä‡§¶‡•á‡§Ç‚Äù ‡§¶‡§¨‡§æ‡§è‡§Å‡•§",
-"st_placed":"‡§ë‡§∞‡•ç‡§°‡§∞ ‡§¶‡§ø‡§Ø‡§æ",
-"ago_today":"‡§Ü‡§ú","ago_yday":"‡§ï‡§≤","ago_days":" ‡§¶‡§ø‡§® ‡§™‡§π‡§≤‡•á",
-"cond_new":"‡§®‡§Ø‡§æ","cond_likenew":"‡§¨‡§ø‡§≤‡•ç‡§ï‡•Å‡§≤ ‡§®‡§Ø‡§æ ‡§ú‡•à‡§∏‡§æ","cond_good":"‡§Ö‡§ö‡•ç‡§õ‡§æ","cond_used":"‡§á‡§∏‡•ç‡§§‡•á‡§Æ‡§æ‡§≤ ‡§ï‡§ø‡§Ø‡§æ ‡§π‡•Å‡§Ü",
-"sell_h2":"‡§Ö‡§™‡§®‡§æ ‡§™‡•ç‡§∞‡•ã‡§°‡§ï‡•ç‡§ü ‡§¨‡•á‡§ö‡•á‡§Ç",
-"sell_sub":"‡§ï‡•ã‡§à ‡§´‡§º‡•Ä‡§∏ ‡§®‡§π‡•Ä‡§Ç, ‡§ï‡•ã‡§à commission ‡§®‡§π‡•Ä‡§Ç ‚Äî ‡§∏‡•Ä‡§ß‡•á customer ‡§Ü‡§™‡§∏‡•á ‡§Æ‡§ø‡§≤‡•á‡§ó‡§æ‡•§",
-"f_title":"‡§™‡•ç‡§∞‡•ã‡§°‡§ï‡•ç‡§ü ‡§ï‡§æ ‡§®‡§æ‡§Æ","f_price":"‡§ï‡•Ä‡§Æ‡§§ (‚Çπ)","f_cat":"‡§∂‡•ç‡§∞‡•á‡§£‡•Ä","f_cond":"‡§π‡§æ‡§≤‡§§","f_city":"‡§∂‡§π‡§∞",
-"f_phone":"‡§¶‡•Å‡§ï‡§æ‡§® ‡§ï‡§æ ‡§´‡§º‡•ã‡§® (‡§∏‡§ø‡§∞‡•ç‡§´‡§º Belivery ‡§¶‡•á‡§ñ‡•á‡§ó‡•Ä)",
-"f_photo":"‡§´‡§º‡•ã‡§ü‡•ã <small>&mdash; ‡§Ü‡§á‡§ï‡§® ‡§ö‡•Å‡§®‡•á‡§Ç</small>",
-"f_desc":"‡§µ‡§ø‡§µ‡§∞‡§£ <small>(‡§µ‡•à‡§ï‡§≤‡•ç‡§™‡§ø‡§ï)</small>",
-"ph_title":"‡§ú‡•à‡§∏‡•á: ‡§π‡•ã‡§Ç‡§°‡§æ ‡§è‡§ï‡•ç‡§ü‡§ø‡§µ‡§æ 2019, 12,000 km","ph_price":"‡§ú‡•à‡§∏‡•á: 45000","ph_city":"‡§ú‡•à‡§∏‡•á: ‡§¨‡§æ‡§Ç‡§¶‡§æ",
-"ph_phone":"10 ‡§Ö‡§Ç‡§ï ‡§ï‡§æ ‡§Æ‡•ã‡§¨‡§æ‡§á‡§≤ ‡§®‡§Ç‡§¨‡§∞","ph_desc":"‡§™‡•ç‡§∞‡•ã‡§°‡§ï‡•ç‡§ü ‡§ï‡•á ‡§¨‡§æ‡§∞‡•á ‡§Æ‡•á‡§Ç ‡§ï‡•Å‡§õ ‡§≤‡§ø‡§ñ‡•á‡§Ç‚Ä¶",
-"err_title":"‡§™‡•ç‡§∞‡•ã‡§°‡§ï‡•ç‡§ü ‡§ï‡§æ ‡§®‡§æ‡§Æ ‡§≤‡§ø‡§ñ‡§®‡§æ ‡§ú‡§º‡§∞‡•Ç‡§∞‡•Ä ‡§π‡•à","err_price":"‡§ï‡•Ä‡§Æ‡§§ 0 ‡§∏‡•á ‡§ú‡§º‡•ç‡§Ø‡§æ‡§¶‡§æ ‡§π‡•ã‡§®‡•Ä ‡§ö‡§æ‡§π‡§ø‡§è",
-"err_city":"‡§∂‡§π‡§∞ ‡§≤‡§ø‡§ñ‡§®‡§æ ‡§ú‡§º‡§∞‡•Ç‡§∞‡•Ä ‡§π‡•à","err_phone":"10 ‡§Ö‡§Ç‡§ï ‡§ï‡§æ ‡§∏‡§π‡•Ä ‡§Æ‡•ã‡§¨‡§æ‡§á‡§≤ ‡§®‡§Ç‡§¨‡§∞ ‡§≤‡§ø‡§ñ‡•á‡§Ç",
-"submit":"‡§≤‡§ø‡§∏‡•ç‡§ü ‡§ï‡§∞‡•á‡§Ç ‚Äî ‡§Æ‡•Å‡§´‡§º‡•ç‡§§",
-"my_listings":"‡§Æ‡•á‡§∞‡•Ä ‡§≤‡§ø‡§∏‡•ç‡§ü‡§ø‡§Ç‡§ó","my_orders":"‡§Æ‡•á‡§∞‡•á ‡§ë‡§∞‡•ç‡§°‡§∞",
-"nav_browse":"‡§¨‡•ç‡§∞‡§æ‡§â‡§ú‡§º","nav_sell":"‡§¨‡•á‡§ö‡•á‡§Ç","nav_ads":"‡§Æ‡•á‡§∞‡•á ‡§µ‡§ø‡§ú‡•ç‡§û‡§æ‡§™‡§®","nav_orders":"‡§ë‡§∞‡•ç‡§°‡§∞",
-"ai_title":"Belivery AI ‚Äî ‡§¨‡•Å‡§¶‡•ç‡§ß‡§Æ‡§§‡§ø ‡§¶‡•ã‡§∏‡•ç‡§§",
-"ai_body":"‡§®‡§Æ‡§∏‡•ç‡§§‡•á! ü§ñ ‡§Æ‡•à‡§Ç Belivery AI ‡§π‡•Ç‡§Å ‚Äî ‡§Ö‡§≠‡•Ä ‡§§‡•à‡§Ø‡§æ‡§∞ ‡§π‡•ã ‡§∞‡§π‡§æ ‡§π‡•Ç‡§Å‡•§ ‡§§‡§¨ ‡§§‡§ï ‡§ï‡•ã‡§à ‡§≠‡•Ä ‡§∏‡§µ‡§æ‡§≤ ‡§π‡•ã ‡§§‡•ã WhatsApp ‡§™‡§∞ ‡§™‡•Ç‡§õ‡•ã ‚Äî ‡§π‡§Æ ‡§ú‡§µ‡§æ‡§¨ ‡§¶‡•á‡§Ç‡§ó‡•á‡•§",
-"ai_close":"‡§¨‡§Ç‡§¶ ‡§ï‡§∞‡•ã",
-"foot_mono":"belivery‚Ñ¢ ¬∑ v5.2",
-"footer_note":"‡§¨‡•Ä‡§ü‡§æ ‡§∏‡§Ç‡§∏‡•ç‡§ï‡§∞‡§£ ‚Äî ‡§∏‡§æ‡§∞‡§æ ‡§°‡•á‡§ü‡§æ ‡§Ü‡§™‡§ï‡•á ‡§¨‡•ç‡§∞‡§æ‡§â‡§ú‡§º‡§∞ ‡§Æ‡•á‡§Ç ‡§∏‡•á‡§µ ‡§π‡•ã‡§§‡§æ ‡§π‡•à, ‡§ï‡§π‡•Ä‡§Ç ‡§Ö‡§™‡§≤‡•ã‡§° ‡§®‡§π‡•Ä‡§Ç ‡§π‡•ã‡§§‡§æ‡•§ ‡§ï‡•ã‡§à ‡§Ö‡§∏‡§≤‡•Ä ‡§™‡•á‡§Æ‡•á‡§Ç‡§ü ‡§®‡§π‡•Ä‡§Ç ‡§π‡•ã‡§§‡§æ‡•§"
-},
-en:{
-"search_ph":"Search products‚Ä¶ (mobile, chair, book)",
-"loc_change":"change","loc_detect":"Detect location","loc_searching":"Finding location‚Ä¶",
-"loc_sheet_title":"Your location",
-"loc_sheet_sub":"With live location, the app sets itself to your town‚Äôs name ‚Äî e.g. in Banda it becomes ‚ÄúBanda Delivery‚Äù.",
-"loc_detect_btn":"Auto-detect from live location",
-"loc_all_btn":"Everywhere ‚Äî show all listings",
-"loc_sheet_note":"Auto-detect needs browser location permission. If it doesn‚Äôt work, pick from the list.",
-"t_no_geo":"Location is not supported in this browser",
-"t_loc_set":"Location set: ",
-"t_loc_no_town":"Couldn‚Äôt find your town ‚Äî pick from the list",
-"t_loc_fail":"Couldn‚Äôt reach the location service ‚Äî pick from the list",
-"t_loc_denied":"Location permission denied ‚Äî pick from the list",
-"tag_all":"buy ¬∑ sell ¬∑ local",
-"title_all":"belivery ‚Äî Buy & Sell Near You",
-"title_place":" Delivery ‚Äî Buy & Sell Near You",
-"hero_sub_all":"List your product for free, or buy from people near you ‚Äî all in your city.",
-"hero_sub_place":"‚Äôs own marketplace ‚Äî local shops, local people, local delivery. powered by belivery",
-"hero_h1":"Sell your product,<br>or <em>buy</em> from people near you.",
-"hero_cta":"+ List your product ‚Äî free",
-"fresh":"Fresh listings",
-"empty_city":" has no listings yet.<br>Be the first ‚Äî open the Sell tab!",
-"empty_all":"Nothing found.<br>Try another keyword, or list your own product.",
-"badge_own":"Your ad",
-"kv_cond":"Condition","kv_cat":"Category","kv_loc":"Location","kv_seller":"Contact",
-"kv_contact_sub":"Belivery ‚Äî orders & delivery",
-"verif_demo":"",
-"seller_you":"You","seller_demo":"Local seller","seller_local":"Local seller",
-"btn_call":"Call","btn_buy":"Buy Now ‚Äî place order",
-"sheet_note":"To order, WhatsApp or call Belivery ‚Äî home delivery.",
-"t_order_ok":"Order noted ‚Äî see the Orders tab",
-"t_form_missing":"Some fields are missing",
-"t_listed":"Listing is live ‚Äî see My Ads",
-"empty_ads":"You have no listings yet.<br>Go to the Sell tab and list your first product.",
-"st_live":"Live","btn_delete":"Delete",
-"t_confirm_del":"Delete this listing?",
-"t_deleted":"Listing deleted",
-"empty_orders":"No orders yet.<br>Tap Buy Now on any product.",
-"st_placed":"Order placed",
-"ago_today":"Today","ago_yday":"Yesterday","ago_days":" days ago",
-"cond_new":"New","cond_likenew":"Like new","cond_good":"Good","cond_used":"Used",
-"sell_h2":"Sell your product",
-"sell_sub":"No fees, no commission ‚Äî customers reach you directly.",
-"f_title":"Product name","f_price":"Price (‚Çπ)","f_cat":"Category","f_cond":"Condition","f_city":"City",
-"f_phone":"Shop phone (only Belivery sees this)",
-"f_photo":"Photo <small>&mdash; pick an icon</small>",
-"f_desc":"Description <small>(optional)</small>",
-"ph_title":"e.g. Honda Activa 2019, 12,000 km","ph_price":"e.g. 45000","ph_city":"e.g. Jaipur",
-"ph_phone":"10-digit mobile number","ph_desc":"Write something about the product‚Ä¶",
-"err_title":"Product name is required","err_price":"Enter a price greater than 0",
-"err_city":"City is required","err_phone":"Enter a valid 10-digit mobile number",
-"submit":"List it ‚Äî Free",
-"my_listings":"My listings","my_orders":"My orders",
-"nav_browse":"Browse","nav_sell":"Sell","nav_ads":"My Ads","nav_orders":"Orders",
-"ai_title":"Belivery AI ‚Äî smart helper",
-"ai_body":"Namaste! ü§ñ I am Belivery AI ‚Äî getting ready to launch. Till then, ask anything on WhatsApp ‚Äî we answer there.",
-"ai_close":"Close",
-"foot_mono":"belivery‚Ñ¢ ¬∑ v5.2",
-"footer_note":"Beta version ‚Äî all data is stored in your own browser and never uploaded. No real payments."
-}
-};
-function T(k){ var v = I18N[LANG][k]; return v === undefined ? (I18N.hi[k] || k) : v; }
-var CAT_LABELS = {
-  "All":{hi:"‡§∏‡§¨",en:"All"}, "Electronics":{hi:"‡§á‡§≤‡•á‡§ï‡•ç‡§ü‡•ç‡§∞‡•â‡§®‡§ø‡§ï‡•ç‡§∏",en:"Electronics"},
-  "Mobiles":{hi:"‡§Æ‡•ã‡§¨‡§æ‡§á‡§≤",en:"Mobiles"}, "Vehicles":{hi:"‡§µ‡§æ‡§π‡§®",en:"Vehicles"},
-  "Furniture":{hi:"‡§´‡§º‡§∞‡•ç‡§®‡•Ä‡§ö‡§∞",en:"Furniture"}, "Fashion":{hi:"‡§´‡§º‡•à‡§∂‡§®",en:"Fashion"},
-  "Books":{hi:"‡§ï‡§ø‡§§‡§æ‡§¨‡•á‡§Ç",en:"Books"}, "Home":{hi:"‡§ò‡§∞",en:"Home"},
-  "Sports":{hi:"‡§ñ‡•á‡§≤",en:"Sports"}, "Others":{hi:"‡§Ö‡§®‡•ç‡§Ø",en:"Others"}
-};
-var COND_LABELS = {
-  "New":{hi:"‡§®‡§Ø‡§æ",en:"New"}, "Like new":{hi:"‡§¨‡§ø‡§≤‡•ç‡§ï‡•Å‡§≤ ‡§®‡§Ø‡§æ ‡§ú‡•à‡§∏‡§æ",en:"Like new"},
-  "Good":{hi:"‡§Ö‡§ö‡•ç‡§õ‡§æ",en:"Good"}, "Used":{hi:"‡§á‡§∏‡•ç‡§§‡•á‡§Æ‡§æ‡§≤ ‡§ï‡§ø‡§Ø‡§æ ‡§π‡•Å‡§Ü",en:"Used"}
-};
-function catLabel(c){ return (CAT_LABELS[c] && CAT_LABELS[c][LANG]) || c; }
-function condLabel(c){ return (COND_LABELS[c] && COND_LABELS[c][LANG]) || c; }
-function applyLang(){
-  document.documentElement.lang = LANG;
-  document.querySelectorAll("[data-i18n]").forEach(function(el){ el.textContent = T(el.getAttribute("data-i18n")); });
-  document.querySelectorAll("[data-i18n-html]").forEach(function(el){ el.innerHTML = T(el.getAttribute("data-i18n-html")); });
-  document.querySelectorAll("[data-i18n-ph]").forEach(function(el){ el.placeholder = T(el.getAttribute("data-i18n-ph")); });
-  $("langBtn").textContent = (LANG === "hi") ? "EN" : "‡§π‡§ø‡§Ç";
-  var sel = $("in-cat");
-  for(var i = 0; i < sel.options.length; i++){ sel.options[i].textContent = catLabel(sel.options[i].value); }
-  renderChips(); updateBranding(); updateLocLabel(); renderGrid(); renderMyAds(); renderOrders();
-}
-function setLang(l){ LANG = l; localStorage.setItem("belivery_lang", l); applyLang(); }
-function toggleLang(){ setLang(LANG === "hi" ? "en" : "hi"); }
-
-/* ============ helpers ============ */
-function $(id){ return document.getElementById(id); }
-function rupees(n){ return "‚Çπ" + Number(n).toLocaleString("en-IN"); }
-function toast(msg){
-  var t = $("toast"); t.textContent = msg; t.classList.add("show");
-  clearTimeout(t._h); t._h = setTimeout(function(){ t.classList.remove("show"); }, 2400);
-}
-function timeAgo(ts){
-  var d = Math.floor((Date.now()-ts)/86400000);
-  if(d<=0) return T("ago_today");
-  if(d===1) return T("ago_yday");
-  return d + T("ago_days");
-}
-
-/* ============ navigation ============ */
-function go(view){
-  document.querySelectorAll(".view").forEach(function(v){ v.classList.remove("active"); });
-  $("view-"+view).classList.add("active");
-  document.querySelectorAll(".nav-btn").forEach(function(b){
-    b.classList.toggle("active", b.getAttribute("data-nav")===view);
-  });
-  window.scrollTo(0,0);
-  var fab = $("aiFab"); if(fab) fab.classList.toggle("hidden", view!=="browse");
-  if(view==="browse") renderGrid();
-  if(view==="ads") renderMyAds();
-  if(view==="orders") renderOrders();
-  if(view==="sell" && selCity.type!=="all" && !$("in-city").value){
-    $("in-city").value = selCity.name;
-  }
-}
-
-/* ============ location branding ============ */
-var DISTRICTS = {
-  "Banda":  {state:"UP", towns:["Banda","Atarra","Baberu","Naraini"]},
-  "Jhansi": {state:"UP", towns:["Jhansi","Mauranipur"]},
-  "Kanpur": {state:"UP", towns:["Kanpur","Bilhaur","Ghatampur"]},
-  "Jaipur": {state:"Rajasthan", towns:["Jaipur","Chomu","Chaksu"]}
-};
-function loadSel(){
-  var s = localStorage.getItem("belivery_place");
-  if(!s || s==="all") return {type:"all"};
-  var p = s.split("|");
-  return {type:"place", name:p[0], state:p[1]||""};
-}
-function saveSel(){ localStorage.setItem("belivery_place", selCity.type==="place" ? selCity.name+"|"+selCity.state : "all"); }
-var selCity = loadSel();
-
-function setSelPlace(name, state){
-  selCity = {type:"place", name:name, state:state||""};
-  saveSel(); updateBranding(); updateLocLabel(); renderGrid();
-}
-function setSelAll(){
-  selCity = {type:"all"};
-  saveSel(); updateBranding(); updateLocLabel(); renderGrid();
-}
-
-function updateLocLabel(){
-  var l = $("locLabel");
-  if(selCity.type==="all") l.textContent = T("loc_detect");
-  else l.textContent = selCity.name + (selCity.state ? ", " + selCity.state : "");
-}
-
-function openLocSheet(){
-  var s = $("sheet");
-  var html = '<div class="grab"></div><h3 style="font-size:18px;font-weight:800">' + T("loc_sheet_title") + '</h3>' +
+"t_confirm_del":"‡§Ø‡§π ‡§≤‡§ø‡§∏‡•ç‡§ü‡§ø‡§Ç‡§ó ‡§π‡§ü‡§æ‡§®‡•Ä ‡§π‡•à?","t_deleted":"‡§≤‡§ø‡§∏‡•ç‡§ü‡§ø‡§Ç‡§ó ‡§π‡§ü‡§æ ‡§¶‡•Ä ‡§ó‡§à","empty_orders":"‡§Ö‡§®‡•Å‡§®‡§¶ ‡§∏‡•ç‡§ø‡§Ç ‡§ë‡§∞‡•ç‡§°‡´0 <div class="grab"></div><h3 style="font-size:18px;font-weight:800">' + T("loc_sheet_title") + '</h3>' +
     '<p style="font-size:13px;color:var(--text-dim);margin:6px 0 14px">' + T("loc_sheet_sub") + '</p>' +
     '<div class="action-row" style="flex-direction:column;gap:8px">' +
     '<button class="btn primary wide" onclick="detectLocation()">' + T("loc_detect_btn") + '</button>' +
@@ -798,169 +577,4 @@ function openSheet(id){
   if(!p) return;
   var s = $("sheet");
   var waMsg = (LANG === "hi")
-    ? "‡§®‡§Æ‡§∏‡•ç‡§§‡•á! ‡§Æ‡•Å‡§ù‡•á belivery ‡§™‡§∞ '" + p.title + "' (" + rupees(p.price) + ") ‡§ë‡§∞‡•ç‡§°‡§∞ ‡§ï‡§∞‡§®‡§æ ‡§π‡•à‡•§ (‡§∂‡§π‡§∞: " + p.city + ")"
-    : "Hi! I'd like to order '" + p.title + "' (" + rupees(p.price) + ") on belivery. (City: " + p.city + ")";
-  var wa = "https://wa.me/918013968142?text=" + encodeURIComponent(waMsg);
-  var tel = "tel:+918013968142";
-  s.innerHTML =
-    '<div class="grab"></div>'+
-    '<div class="thumb" style="'+(p.img?("background-image:url('"+p.img+"')"):"")+'">'+(p.img?"":p.emoji)+'</div>'+
-    '<div class="price">'+rupees(p.price)+'</div>'+
-    '<h3>'+escapeHtml(p.title)+'</h3>'+
-    '<div class="kv"><div class="k">'+T("kv_cond")+'</div><div class="v">'+escapeHtml(condLabel(p.cond))+'</div></div>'+
-    '<div class="kv"><div class="k">'+T("kv_cat")+'</div><div class="v">'+escapeHtml(catLabel(p.cat))+'</div></div>'+
-    '<div class="kv"><div class="k">'+T("kv_loc")+'</div><div class="v">'+escapeHtml(p.city)+'</div></div>'+
-    '<div class="kv"><div class="k">'+T("kv_seller")+'</div><div class="v">+91 XXXXXXXXXX<small>'+T("kv_contact_sub")+'</small></div></div>'+
-    (p.desc?('<div class="desc">'+escapeHtml(p.desc)+'</div>'):'')+
-    '<div class="action-row">'+
-      '<a class="btn" href="'+tel+'">'+T("btn_call")+'</a>'+
-      '<a class="btn" href="'+wa+'" target="_blank" rel="noopener">WhatsApp</a>'+
-    '</div>'+
-    '<div class="action-row"><button class="btn primary wide" onclick="buyNow('+p.id+')">'+T("btn_buy")+'</button></div>'+
-    '<div class="close-note">' + T("sheet_note") + '</div>';
-  $("overlay").classList.add("open");
-}
-
-function buyNow(id){
-  var p = products.find(function(x){ return x.id===id; });
-  if(!p) return;
-  orders.unshift({ id: Date.now(), pid: p.id, title: p.title, price: p.price, emoji: p.img?"":p.emoji, city: p.city, ts: Date.now(), status: "placed" });
-  save();
-  closeSheet();
-  toast(T("t_order_ok"));
-  go("orders");
-}
-
-
-/* ============ AI assistant sheet (v5.2) ============ */
-function openAI(){
-  var s = $("sheet");
-  var waMsg = (LANG === "hi")
-    ? "‡§®‡§Æ‡§∏‡•ç‡§§‡•á Belivery! ‡§Æ‡•Å‡§ù‡•á ‡§Æ‡§¶‡§¶ ‡§ö‡§æ‡§π‡§ø‡§è‡•§"
-    : "Hi Belivery! I need some help.";
-  var wa = "https://wa.me/918013968142?text=" + encodeURIComponent(waMsg);
-  s.innerHTML =
-    '<div class="grab"></div>'+
-    '<div class="thumb" style="height:110px;font-size:46px">ü§ñ</div>'+
-    '<h3 style="text-align:center">'+T("ai_title")+'</h3>'+
-    '<div class="desc" style="text-align:center">'+T("ai_body")+'</div>'+
-    '<div class="action-row" style="flex-direction:column">'+
-      '<a class="btn primary wide" href="'+wa+'" target="_blank" rel="noopener">WhatsApp</a>'+
-      '<button class="btn wide" onclick="closeSheet()">'+T("ai_close")+'</button>'+
-    '</div>';
-  $("overlay").classList.add("open");
-}
-
-/* ============ sell form ============ */
-(function initForm(){
-  var sel = $("in-cat");
-  CATEGORIES.forEach(function(c){
-    var o = document.createElement("option"); o.value=c; o.textContent=catLabel(c); sel.appendChild(o);
-  });
-  var pick = $("emojiPick");
-  var all = [];
-  CATEGORIES.forEach(function(c){ all.push(EMOJIS[c]); });
-  all = all.concat(CAT_EMOJI_EXTRA);
-  var selected = EMOJIS[CATEGORIES[0]];
-  all.forEach(function(e){
-    var b = document.createElement("button");
-    b.type="button"; b.textContent = e;
-    if(e===selected) b.classList.add("selected");
-    b.onclick = function(){
-      selected = e;
-      pick.querySelectorAll("button").forEach(function(x){ x.classList.remove("selected"); });
-      b.classList.add("selected");
-    };
-    pick.appendChild(b);
-  });
-  pick._get = function(){ return selected; };
-
-  $("sellForm").addEventListener("submit", function(ev){
-    ev.preventDefault();
-    var title = $("in-title").value.trim();
-    var price = parseInt($("in-price").value, 10);
-    var city = $("in-city").value.trim();
-    var phone = $("in-phone").value.replace(/\D/g,"");
-    var ok = true;
-    function mark(fid, bad){ var f=$(fid); f.classList.toggle("invalid", bad); if(bad) ok=false; }
-    mark("f-title", title.length<3);
-    mark("f-price", !(price>0));
-    mark("f-city", city.length<2);
-    mark("f-phone", phone.length!==10);
-    if(!ok){ toast(T("t_form_missing")); return; }
-
-    products.unshift({
-      id: Date.now(),
-      title: title, price: price,
-      cat: $("in-cat").value, cond: $("in-cond").value,
-      city: city, phone: phone,
-      emoji: pick._get(),
-      desc: $("in-desc").value.trim(),
-      own: true, demo: false, img: "",
-      ts: Date.now()
-    });
-    save();
-    this.reset();
-    pick.querySelectorAll("button").forEach(function(x,i){ x.classList.toggle("selected", i===0); });
-    selected = EMOJIS[CATEGORIES[0]];
-    toast(T("t_listed"));
-    go("browse");
-  });
-})();
-
-/* ============ my ads ============ */
-function renderMyAds(){
-  var box = $("myAdsList");
-  var mine = products.filter(function(p){ return p.own; });
-  if(!mine.length){
-    box.innerHTML = '<div class="empty">' + T("empty_ads") + '</div>';
-    return;
-  }
-  box.innerHTML = "";
-  mine.forEach(function(p){
-    var d = document.createElement("div");
-    d.className = "order-card";
-    d.innerHTML =
-      '<div class="o-emoji">'+(p.img?"":p.emoji)+'</div>'+
-      '<div class="o-main"><div class="o-title">'+escapeHtml(p.title)+'</div>'+
-      '<div class="o-sub">'+rupees(p.price)+' &middot; '+escapeHtml(p.city)+' &middot; '+timeAgo(p.ts)+'</div></div>'+
-      '<span class="status listed">'+T("st_live")+'</span>'+
-      '<button class="btn danger" style="flex:none;padding:8px 12px" onclick="removeAd('+p.id+')">'+T("btn_delete")+'</button>';
-    box.appendChild(d);
-  });
-}
-function removeAd(id){
-  if(!confirm(T("t_confirm_del"))) return;
-  products = products.filter(function(p){ return p.id!==id; });
-  save(); renderMyAds(); toast(T("t_deleted"));
-}
-
-/* ============ orders ============ */
-function renderOrders(){
-  var box = $("ordersList");
-  if(!orders.length){
-    box.innerHTML = '<div class="empty">' + T("empty_orders") + '</div>';
-    return;
-  }
-  box.innerHTML = "";
-  orders.forEach(function(o){
-    var d = document.createElement("div");
-    d.className = "order-card";
-    d.innerHTML =
-      '<div class="o-emoji">'+(o.emoji||"üì¶")+'</div>'+
-      '<div class="o-main"><div class="o-title">'+escapeHtml(o.title)+'</div>'+
-      '<div class="o-sub">'+rupees(o.price)+' &middot; '+escapeHtml(o.city)+' &middot; '+timeAgo(o.ts)+'</div></div>'+
-      '<span class="status placed">'+T("st_placed")+'</span>';
-    box.appendChild(d);
-  });
-}
-
-/* ============ init ============ */
-applyLang();
-if(!localStorage.getItem("belivery_place") && !localStorage.getItem("belivery_loc_asked")){
-  localStorage.setItem("belivery_loc_asked","1");
-  detectLocation();
-}
-</script>
-</body>
-</html>
+    ? "‡§®‡§Æ‡§∏‡•ç‡§§‡•á! ‡§Æ‡•Å‡§ù‡•á belivery ‡§™‡§∞ '" + p.title + "' (" + rupees(p.price) + ") ‡§ë‡§∞‡ßÜ Ωë•ÿ¯(Ωë•ÿ¯(ΩâΩë‰¯(Ω°—µ∞¯(
