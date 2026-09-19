@@ -26,18 +26,18 @@ self.addEventListener('fetch', function(e){
         caches.open(CACHE).then(function(c){ c.put(e.request, copy); });
         return res;
       }).catch(function(){
-        return caches.match(e.request).then(function(r) return r || caches.match('./'); });
+        return caches.match(e.request).then(function(r){ return r || caches.match('./'); });
       })
     );
   } else {
     e.respondWith(
       caches.match(e.request).then(function(r){
         return r || fetch(e.request).then(function(res){
-          var copy = res.slone();
+          var copy = res.clone();
           caches.open(CACHE).then(function(c){ c.put(e.request, copy); });
           return res;
         });
-    })
+      })
     );
   }
 });

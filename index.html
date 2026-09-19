@@ -29,8 +29,7 @@
   /* ===== AUTO DARK MODE â€” device setting ke hisaab se (v5.1) ===== */
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#141110;
-      --surface:#1d1916; --surface-2:#272220;
+      --bg:#141110; --surface:#1d1916; --surface-2:#272220;
       --border:rgba(255,255,255,.09); --border-strong:rgba(255,255,255,.17);
       --text:#f1eae4; --text-dim:#a49a90;
       --accent:#ff7a45; --accent-dim:rgba(255,122,69,.15); --accent-deep:#ff9d73;
@@ -51,9 +50,9 @@
   }
   .wrap{max-width:640px;margin:0 auto;padding:0 18px}
 
-  /* --------- top header ---------- */
+  /* ---------- top header ---------- */
   header.topbar{
-    position:sticky; top:0; z-index:400; background:rgba(250,247,245,.92);
+    position:sticky; top:0; z-index:40; background:rgba(250,247,245,.92);
     backdrop-filter:blur(8px); border-bottom:1px solid var(--border);
   }
   .topbar-inner{display:flex;align-items:center;gap:10px;padding:12px 0}
@@ -77,7 +76,7 @@
   }
   .demo-banner b{font-weight:800}
 
-  /* --------- search ---------- */
+  /* ---------- search ---------- */
   .search-row{padding:12px 0 4px}
   .search-box{
     display:flex;align-items:center;gap:10px;background:var(--surface);
@@ -97,20 +96,19 @@
     font-family:var(--font-body);
   }
   .chip.active{background:var(--text);color:var(--bg);border-color:var(--text)}
-  .loc-bar{display:flex;align-items:center;gap:8px;width:100%;background:var(--surface);border:1px solid var(--border-strong);border-radius:999px;padding:13px 18px;margin:14px 0
-4px;cursor:pointer;font:inherit;font-size:14px;font-weight:600;color:var(--text);text-align:left;transition:transform .12s}
+  .loc-bar{display:flex;align-items:center;gap:8px;width:100%;background:var(--surface);border:1px solid var(--border-strong);border-radius:999px;padding:13px 18px;margin:14px 0 4px;cursor:pointer;font:inherit;font-size:14px;font-weight:600;color:var(--text);text-align:left;transition:transform .12s}
   .loc-bar:active{transform:scale(.98)}
   .loc-bar svg{flex:none;color:var(--accent)}
   .loc-change{margin-left:auto;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);font-weight:500}
 
-  /* --------- section label ---------- */
+  /* ---------- section label ---------- */
   .section-label{
     display:flex;align-items:center;gap:8px;margin:24px 0 12px;
     font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-dim);
   }
   .section-label::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--accent)}
 
-  /* ---------- hero ----------- */
+  /* ---------- hero ---------- */
   .hero{
     background:var(--surface);border:1px solid var(--border);border-radius:24px;
     padding:46px 22px 42px;margin-top:16px;position:relative;overflow:hidden;text-align:center;
@@ -119,7 +117,7 @@
   .hero h1{font-size:30px;font-weight:800;line-height:1.16;letter-spacing:-.8px;position:relative;z-index:1}
   .hero h1 em{font-style:normal;color:var(--accent)}
   .hero p{color:var(--text-dim);font-size:14.5px;margin-top:10px;max-width:400px;margin-left:auto;margin-right:auto;position:relative;z-index:1}
-  .hero .ctG
+  .hero .cta{
     margin-top:24px;display:inline-flex;align-items:center;gap:8px;
     background:var(--text);color:var(--bg);font-weight:700;font-size:15px;
     border:none;border-radius:999px;padding:14px 30px;cursor:pointer;position:relative;z-index:1;
@@ -127,7 +125,7 @@
   }
   .hero .cta:active{transform:scale(.97)}
 
-  /* ---------- product grid ----------- */
+  /* ---------- product grid ---------- */
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:28px}
   @media(min-width:460px){.grid{grid-template-columns:repeat(3,1fr)}}
   .card{
@@ -401,7 +399,7 @@
       <button class="cta" onclick="go('sell')" data-i18n="hero_cta">+ à¤®à¥à¤«à¤¼à¥à¤¤ à¤®à¥‡à¤‚ à¤ªà¥à¤°à¥‹à¤¡à¤•à¥à¤Ÿ à¤¬à¥‡à¤šà¥‡à¤‚</button>
     </div>
 
-    <div class="section-label"><span data-i18n="fresh">à¤¨à¢ à¤²à¤¿à¤¸à¥à¤Ÿà¤¿à¤‚à¤—</span></div>
+    <div class="section-label"><span data-i18n="fresh">à¤¨à¤ˆ à¤²à¤¿à¤¸à¥à¤Ÿà¤¿à¤‚à¤—</span></div>
     <div class="grid" id="productGrid"></div>
   </div>
 </section>
@@ -437,4 +435,111 @@
           </select>
         </div>
         <div class="field" id="f-city">
-          <label data-i18n="f_city">à¤¶à¤¹à¤°ğ½±…‰•°ø(€€€€€€€€€€ñ¥¹ÁÕĞ¥ô‰¥¸µ¥ÑäˆÑåÁ”ô‰Ñ•áĞˆµ…á±•¹Ñ ôˆÌÀˆ‘…Ñ„µ¤Äá¸µÁ ô‰Á¡}¥ÑäˆÁ±…•¡½±‘•Èô‹‚’s‚–#‚’ã‚–èƒ‚’³‚’û‚’‚’›‚’øˆø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰•ÉÈˆ‘…Ñ„µ¤Äá¸ô‰•ÉÉ}¥Ñäˆû‚’Û‚’ç‚’Àƒ‚’Èƒ‚’ÿ‚’[‚’£‚’øƒ‚’s‚’ó‚’Ã‚–‚’Ã‚– ƒ‚’ç‚– ğ½‘¥Øø(€€€€€€€€ğ½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰™¥•±ˆ¥ô‰˜µÁ¡½¹”ˆø(€€€€€€€€€€ñ±…‰•°‘…Ñ„µ¤Äá¸ô‰™}Á¡½¹”ˆû‚’›‚–‚’W‚’øƒ‚’W‚’øƒ‚’¯‚’ó‚–/‚’ €£‚’ã‚’ÿ‚’Ã‚–7‚’¯‚’ğ	•±¥Ù•Éäƒ‚’›‚–‚’[‚–‚’_‚– ¤ğ½±…‰•°ø(€€€€€€€€€€ñ¥¹ÁÕĞ¥ô‰¥¸µÁ¡½¹”ˆÑåÁ”ô‰Ñ•°ˆµ…á±•¹Ñ ôˆÄÀˆ¥¹ÁÕÑµ½‘”ô‰¹Õµ•É¥Œˆ‘…Ñ„µ¤Äá¸µÁ ô‰Á¡}Á¡½¹”ˆÁ±…•¡½±‘•ÈôˆÄÀƒ‚’‚’‚’Tƒ‚’W‚’øƒ‚’»‚–/‚’³‚’û‚’‚’Èƒ‚’£‚’‚’³‚’Àˆø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰•ÉÈˆ‘…Ñ„µ¤Äá¸ô‰•ÉÉ}Á¡½¹”ˆøÄÀƒ‚’‚’‚’Tƒ‚’W‚’øƒ‚’ã‚’ç‚– ƒ‚’»‚–/‚’³‚’û‚’‚’Èƒ‚’£‚’‚’³‚’Àƒ‚’Ë‚’ÿ‚’[‚–‚’ğ½‘¥Øø(€€€€€€€€ğ½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰™¥•±ˆø(€€€€€€€€€€ñ±…‰•°‘…Ñ„µ¤Äá¸µ¡Ñµ°ô‰™}Á¡½Ñ¼ˆû‚’¯‚’ó‚–/‚’‚–,€ñÍµ…±°ø™µ‘…Í ìƒ‚’‚’‚’W‚’ ƒ‚’k‚–‚’£‚–‚’ğ½Íµ…±°øğ½±…‰•°ø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰•µ½©¤µÁ¥¬ˆ¥ô‰•µ½©¥A¥¬ˆøğ½‘¥Øø(€€€€€€€€ğ½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰™¥•±ˆ¥ô‰˜µ‘•ÍŒˆø(€€€€€€€€€€ñ±…‰•°‘…Ñ„µ¤Äá¸µ¡Ñµ°ô‰™}‘•ÍŒˆû‚’×‚’ÿ‚’×‚’Ã‚’Œ€ñÍµ…±°ø£‚’×‚–#‚’W‚’Ë‚–7‚’«‚’ÿ‚’T¤ğ½Íµ…±°øğ½±…‰•°ø(€€€€€€€€€€ñÑ•áÑ…É•„¥ô‰¥¸µ‘•ÍŒˆµ…á±•¹Ñ ôˆÌÀÀˆ‘…Ñ„µ¤Äá¸µÁ ô‰Á¡}‘•ÍŒˆÁ±…•¡½±‘•Èô‹‚’«‚–7‚’Ã‚–/‚’‡‚’W‚–7‚’|ƒ‚’W‚–ƒ‚’³‚’û‚’Ã‚–ƒ‚’»‚–‚’ƒ‚’W‚–‚’lƒ‚’Ë‚’ÿ‚’[‚–‚’Š˜ˆøğ½Ñ•áÑ…É•„ø(€€€€€€€€ğ½‘¥Øø(€€€€€€€€ñ‰ÕÑÑ½¸ÑåÁ”ô‰ÍÕ‰µ¥Ğˆ±…ÍÌô‰ÍÕ‰µ¥Ğµ‰Ñ¸ˆ‘…Ñ„µ¤Äá¸ô‰ÍÕ‰µ¥Ğˆû‚’Ë‚’ÿ‚’ã‚–7‚’|ƒ‚’W‚’Ã‚–‚’€™µ‘…Í ìƒ‚’»‚–‚’¯‚’ó‚–7‚’ğ½‰ÕÑÑ½¸ø(€€€€€€ğ½™½É´ø(€€€€ğ½‘¥Øø(€€ğ½‘¥Øø(ğ½Í•Ñ¥½¸ø((ğ„´´€ôôôôôôôôôôôôôôôôô5dL€ôôôôôôôôôôôôôôôôô€´´ø(ñÍ•Ñ¥½¸±…ÍÌô‰Ù¥•Üˆ¥ô‰Ù¥•Üµ…‘Ìˆø(€€ñ‘¥Ø±…ÍÌô‰İÉ…Àˆø(€€€€ñ‘¥Ø±…ÍÌô‰Í•Ñ¥½¸µ±…‰•°ˆøñÍÁ…¸‘…Ñ„µ¤Äá¸ô‰µå}±¥ÍÑ¥¹Ìˆû‚’»‚–‚’Ã‚– ƒ‚’Ë‚’ÿ‚’ã‚–7‚’‚’ÿ‚’‚’\ğ½ÍÁ…¸øğ½‘¥Øø(€€€€ñ‘¥Ø¥ô‰µå‘Í1¥ÍĞˆøğ½‘¥Øø(€€ğ½‘¥Øø(ğ½Í•Ñ¥½¸ø((ğ„´´€ôôôôôôôôôôôôôôôôô=IIL€ôôôôôôôôôôôôôôôôô€´´ø(ñÍ•Ñ¥½¸±…ÍÌô‰Ù¥•Üˆ¥ô‰Ù¥•Üµ½É‘•ÉÌˆø(€€ñ‘¥Ø±…ÍÌô‰İÉ…Àˆø(€€€€ñ‘¥Ø±…ÍÌô‰Í•Ñ¥½¸µ±…‰•°ˆøñÍÁ…¸‘…Ñ„µ¤Äá¸ô‰µå}½É‘•ÉÌˆû‚’»‚–‚’Ã‚–ƒ‚’G‚’Ã‚–7‚’‡‚’Àğ½ÍÁ…¸øğ½‘¥Øø(€€€€ñ‘¥Ø¥ô‰½É‘•ÉÍ1¥ÍĞˆøğ½‘¥Øø(€€ğ½‘¥Øø(ğ½Í•Ñ¥½¸ø((ñ¹…Ø±…ÍÌô‰‰½ÑÑ½´ˆø(€€ñ‘¥Ø±…ÍÌô‰¹…Øµ¥¹¹•Èˆø(€€€€ñ‰ÕÑÑ½¸±…ÍÌô‰¹…Øµ‰Ñ¸…Ñ¥Ù”ˆ‘…Ñ„µ¹…Øô‰‰É½İÍ”ˆ½¹±¥¬ô‰¼ ‰É½İÍ”œ¤ˆø(€€€€€€ñÍÙœÙ¥•İ	½àôˆÀ€À€ÈĞ€ÈĞˆøñÁ…Ñ ô‰´Ì€ÄÀ€ä´Ü€ä€İØÄÁ„Ä€Ä€À€À€Ä´Ä€Å ´ÕØ´İ ´ÙØİ Ñ„Ä€Ä€À€À€Ä´Ä´Åèˆ¼øğ½ÍÙœø(€€€€€€ñÍÁ…¸‘…Ñ„µ¤Äá¸ô‰¹…Ù}‰É½İÍ”ˆû‚’³‚–7‚’Ã‚’û‚’'‚’s‚’ğğ½ÍÁ…¸ø(€€€€ğ½‰ÕÑÑ½¸ø(€€€€ñ‰ÕÑÑ½¸±…ÍÌô‰¹…Øµ‰Ñ¸ˆ‘…Ñ„µ¹…Øô‰Í•±°ˆ½¹±¥¬ô‰¼ Í•±°œ¤ˆø(€€€€€€ñÍÙœÙ¥•İ	½àôˆÀ€À€ÈĞ€ÈĞˆøñ¥É±”àôˆÄÈˆäôˆÄÈˆÈôˆäˆ¼øñÁ…Ñ ô‰4ÄÈ€áØá4à€ÄÉ àˆ¼øğ½ÍÙœø(€€€€€€ñÍÁ…¸‘…Ñ„µ¤Äá¸ô‰¹…Ù}Í•±°ˆû‚’³‚–‚’k‚–‚’ğ½ÍÁ…¸ø(€€€€ğ½‰ÕÑÑ½¸ø(€€€€ñ‰ÕÑÑ½¸±…ÍÌô‰¹…Øµ‰Ñ¸ˆ‘…Ñ„µ¹…Øô‰…‘Ìˆ½¹±¥¬ô‰¼ …‘Ìœ¤ˆø(€€€€€€ñÍÙœÙ¥•İ	½àôˆÀ€À€ÈĞ€ÈĞˆøñÉ•ĞàôˆÌˆäôˆĞˆİ¥‘Ñ ôˆÄàˆ¡•¥¡ĞôˆÄØˆÉàôˆÈˆ¼øñÁ…Ñ ô‰4Ì€å Äá4à€ÄÑ Ôˆ¼øğ½ÍÙœø(€€€€€€ñÍÁ…¸‘…Ñ„µ¤Äá¸ô‰¹…Ù}…‘Ìˆû‚’»‚–‚’Ã‚–ƒ‚’×‚’ÿ‚’s‚–7‚’{‚’û‚’«‚’ ğ½ÍÁ…¸ø(€€€€ğ½‰ÕÑÑ½¸ø(€€€€ñ‰ÕÑÑ½¸±…ÍÌô‰¹…Øµ‰Ñ¸ˆ‘…Ñ„µ¹…Øô‰½É‘•ÉÌˆ½¹±¥¬ô‰¼ ½É‘•ÉÌœ¤ˆø(€€€€€€ñÍÙœÙ¥•İ	½àôˆÀ€À€ÈĞ€ÈĞˆøñÁ…Ñ ô‰4Ø€È€Ğ€ÙØÄÑ„È€È€À€À€À€È€É ÄÉ„È€È€À€À€À€È´ÉXÙ°´È´Ñèˆ¼øñÁ…Ñ ô‰4Ğ€Ù ÄÙ4ÄØ€ÄÁ„Ğ€Ğ€À€À€Ä´à€Àˆ¼øğ½ÍÙœø(€€€€€€ñÍÁ…¸‘…Ñ„µ¤Äá¸ô‰¹…Ù}½É‘•ÉÌˆû‚’G‚’Ã‚–7‚’‡‚’Àğ½ÍÁ…¸ø(€€€€ğ½‰ÕÑÑ½¸ø(€€ğ½‘¥Øø(ğ½¹…Øø(((ğ„´´€ôôôôôôôôôôôôµ•¹Ô‘É…İ•È€¡ØÔ¸Ğ¤€ôôôôôôôôôôôô€´´ø(ñ‘¥Ø±…ÍÌô‰µ•¹Ôµ½Ù•É±…äˆ¥ô‰µ•¹Õ=Ù•É±…äˆ½¹±¥¬ô‰¥˜¡•Ù•¹Ğ¹Ñ…É•ĞôôõÑ¡¥Ì¥±½Í•5•¹Ô ¤ˆøğ½‘¥Øø(ñ…Í¥‘”±…ÍÌô‰µ•¹Ôµ‘É…İ•Èˆ¥ô‰µ•¹ÕÉ…İ•Èˆø(€€ñ‘¥Ø±…ÍÌô‰µ•¹Ôµ¡•…ˆø(€€€€ñ‘¥Ø±…ÍÌô‰´µ±½¼ˆøñÍÁ…¸±…ÍÌô‰ˆÄˆù‰”ğ½ÍÁ…¸ù±¥ØñÍÁ…¸±…ÍÌô‰ˆÄˆù•Éäğ½ÍÁ…¸øñÍÕÀÍÑå±”ô‰™½¹ĞµÍ¥é”èåÁàí™½¹Ğµİ•¥¡ĞèØÀÀˆø™ÑÉ…‘”ìğ½ÍÕÀøğ½‘¥Øø(€€€€ñ‰ÕÑÑ½¸±…ÍÌô‰µ•¹Ôµ±½Í”ˆ½¹±¥¬ô‰±½Í•5•¹Ô ¤ˆ…É¥„µ±…‰•°ô‰±½Í”µ•¹Ôˆø™Ñ¥µ•Ììğ½‰ÕÑÑ½¸ø(€€ğ½‘¥Øø(€€ñ‘¥Ø±…ÍÌô‰µ•¹Ôµ±¥ÍĞˆø(€€€€ñ‰ÕÑÑ½¸±…ÍÌô‰µ•¹Ôµ¥Ñ•´ˆ½¹±¥¬ô‰µ•¹Õ¼ ‰É½İÍ”œ¤ˆøñÍÁ…¸±…ÍÌô‰µ¤ˆûÂ~>€ğ½ÍÁ…¸øñÍÁ…¸‘…Ñ„µ¤Äá¸ô‰µ•¹Õ}¡½µ”ˆû‚’ç‚–/‚’¸ğ½ÍÁ…¸øğ½‰ÕÑÑ½¸ø(€€€€ñ‰ÕÑÑ½¸±…ÍÌô‰µ•¹Ôµ¥Ñ•´ˆ½¹±¥¬ô‰µ•¹Õ¼ Í•±°œ¤ˆøñÍÁ…¸±…ÍÌô‰µ¤ˆûŠzTğ½ÍÁ…¸øñÍÁ…¸‘…Ñ„µ¤Äá¸ô‰µ•¹Õ}Í•±°ˆû‚’£‚’ ƒ‚’Ë‚’ÿ‚’ã‚–7‚’‚’ÿ‚’‚’\ƒ‚’³‚’£‚’û‚’?‚’ğ½ÍÁ…¸øğ½‰ÕÑÑ½¸ø(€€€€ñ‰ÕÑÑ½¸±…ÍÌô‰µ•¹Ôµ¥Ñ•´ˆ½¹±¥¬ô‰µ•¹Õ¼ …‘Ìœ¤ˆøñÍÁ…¸±…ÍÌô‰µ¤ˆûÂ~Nˆğ½ÍÁ…¸øñÍÁ…¸‘…Ñ„µ¤Äá¸ô‰µ•¹Õ}…‘Ìˆû‚’»‚–‚’Ã‚–ƒ‚’×‚’ÿ‚’s‚–7‚’{‚’û‚’«‚’ ğ½ÍÁ…¸øğ½‰ÕÑÑ½¸ø(€€€€ñ‰ÕÑÑ½¸±…ÍÌô‰µ•¹Ôµ¥Ñ•´ˆ½¹±¥¬ô‰µ•¹Õ¼ ½É‘•ÉÌœ¤ˆøñÍÁ…¸±…ÍÌô‰µ¤ˆûÂ~nHğ½ÍÁ…¸øñÍÁ…¸‘…Ñ„µ¤Äá¸ô‰µ•¹Õ}½É‘•ÉÌˆû‚’»‚–‚’Ã‚–ƒ‚’G‚’Ã‚–7‚’‡‚’Àğ½ÍÁ…¸øğ½‰ÕÑÑ½¸ø(€€€€ñ‘¥Ø±…ÍÌô‰µ•¹ÔµÍ•Àˆøğ½‘¥Øø(€€€€ñ‰ÕÑÑ½¸±…ÍÌô‰µ•¹Ôµ¥Ñ•´ˆ½¹±¥¬ô‰½Á•¹‰½ÕĞ ¤ˆøñÍÁ…¸±…ÍÌô‰µ¤ˆûŠç¾â<ğ½ÍÁ…¸øñÍÁ…¸‘…Ñ„µ¤Äá¸ô‰µ•¹Õ}…‰½ÕĞˆù	•±¥Ù•Éäƒ‚’W‚–ƒ‚’³‚’û‚’Ã‚–ƒ‚’»‚–‚’ğ½ÍÁ…¸øğ½‰ÕÑÑ½¸ø(€€€€ñ‰ÕÑÑ½¸±…ÍÌô‰µ•¹Ôµ¥Ñ•´ˆ½¹±¥¬ô‰½¹Ñ…Ñ	•±¥Ù•Éä ¤ˆøñÍÁ…¸±…ÍÌô‰µ¤ˆûÂ~Nxğ½ÍÁ…¸øñÍÁ…¸‘…Ñ„µ¤Äá¸ô‰µ•¹Õ}½¹Ñ…Ğˆû‚’ã‚’‚’«‚’Ã‚–7‚’Tƒ‚’W‚’Ã‚–‚’ğ½ÍÁ…¸øğ½‰ÕÑÑ½¸ø(€€€€ñ‰ÕÑÑ½¸±…ÍÌô‰µ•¹Ôµ¥Ñ•´ˆ½¹±¥¬ô‰µ•¹Õ%¹ÍÑ…±° ¤ˆøñÍÁ…¸±…ÍÌô‰µ¤ˆûÂ~NÈğ½ÍÁ…¸øñÍÁ…¸‘…Ñ„µ¤Äá¸ô‰µ•¹Õ}¥¹ÍÑ…±°ˆû‚’C‚’¨ƒ‚’‚’‚’ã‚–7‚’‚–'‚’Èƒ‚’W‚’Ã‚–‚’ğ½ÍÁ…¸øğ½‰ÕÑÑ½¸ø(€€€€ñ‰ÕÑÑ½¸±…ÍÌô‰µ•¹Ôµ¥Ñ•´ˆ½¹±¥¬ô‰Í¡…É•	•±¥Ù•Éä ¤ˆøñÍÁ…¸±…ÍÌô‰µ¤ˆûÂ~R\ğ½ÍÁ…¸øñÍÁ…¸‘…Ñ„µ¤Äá¸ô‰µ•¹Õ}Í¡…É”ˆû‚’Û‚–‚’¿‚’Àƒ‚’W‚’Ã‚–‚’ğ½ÍÁ…¸øğ½‰ÕÑÑ½¸ø(€€€€ñ‘¥Ø±…ÍÌô‰µ•¹ÔµÍ•Àˆøğ½‘¥Øø(€€€€ñ‰ÕÑÑ½¸±…ÍÌô‰µ•¹Ôµ¥Ñ•´ˆ½¹±¥¬ô‰Ñ½±•1…¹œ ¤í±½Í•5•¹Ô ¤ˆøñÍÁ…¸±…ÍÌô‰µ¤ˆûÂ~Rğ½ÍÁ…¸øñÍÁ…¸‘…Ñ„µ¤Äá¸ô‰µ•¹Õ}±…¹œˆû‚’·‚’û‚’ß‚’øƒ‚’³‚’›‚’Ë‚–‚’ğ½ÍÁ…¸øñÍÁ…¸±…ÍÌô‰µ„ˆù8€¼ƒ‚’ç‚’ÿ‚’ğ½ÍÁ…¸øğ½‰ÕÑÑ½¸ø(€€ğ½‘¥Øø(€€ñ‘¥Ø±…ÍÌô‰µ•¹Ôµ™½½Ğˆ‘…Ñ„µ¤Äá¸ô‰™½½Ñ}µ½¹¼ˆù‰•±¥Ù•Éä™ÑÉ…‘”ì€™µ¥‘‘½ĞìØÔ¸Ğğ½‘¥Øø(ğ½…Í¥‘”ø((ğ„´´ÁÉ½‘ÕĞ‘•Ñ…¥°Í¡••Ğ€´´ø(ñ‘¥Ø±…ÍÌô‰½Ù•É±…äˆ¥ô‰½Ù•É±…äˆ½¹±¥¬ô‰¥˜¡•Ù•¹Ğ¹Ñ…É•ĞôôõÑ¡¥Ì¥±½Í•M¡••Ğ ¤ˆø(€€ñ‘¥Ø±…ÍÌô‰Í¡••Ğˆ¥ô‰Í¡••Ğˆøğ½‘¥Øø(ğ½‘¥Øø((ñ‘¥Ø±…ÍÌô‰Ñ½…ÍĞˆ¥ô‰Ñ½…ÍĞˆøğ½‘¥Øø((ğ„´´	•±¥Ù•Éä$…ÍÍ¥ÍÑ…¹Ğ™±½…Ñ¥¹œ‰ÕÑÑ½¸€¡ØÔ¸È¤€´´ø(ñ‰ÕÑÑ½¸±…ÍÌô‰…¤µ™…ˆˆ¥ô‰…¥…ˆˆ½¹±¥¬ô‰½Á•¹$ ¤ˆ…É¥„µ±…‰•°ô‰	•±¥Ù•Éä$ÍÍ¥ÍÑ…¹Ğˆø(€€ñÍÙœÙ¥•İ	½àôˆÀ€À€ÈĞ€ÈĞˆøñÁ…Ñ ô‰4ÄÈ€É°Ä¸ä€Ô¸İ0Ää¸Ø€ä¸Ù°´Ğ¸Ğ€Ì¸ä€Ä¸Ä€Ô¸å0ÄÈ€ÄØ¸Ù°´Ğ¸Ì€È¸à€Ä¸Ä´Ô¸ä´Ğ¸Ğ´Ì¸ä€Ô¸Ü´Ä¸å0ÄÈ€Éé´Ü€Ì¸Õ„Ä¸È€Ä¸È€À€Ä€Ä€À€È¸Ğ€Ä¸È€Ä¸È€À€À€Ä€À´È¸Ñèˆ¼øğ½ÍÙœø(€€ñÍÁ…¸ù$ğ½ÍÁ…¸ø(ğ½‰ÕÑÑ½¸ø(((ñ™½½Ñ•È±…ÍÌô‰Á…•™½½Ğˆø(€€ñ‘¥Ø±…ÍÌô‰İÉ…Àˆø(€€€€ñ‘¥Ø±…ÍÌô‰µ½¹¼ˆ‘…Ñ„µ¤Äá¸ô‰™½½Ñ}µ½¹¼ˆù‰•±¥Ù•Éä™ÑÉ…‘”ì€™µ¥‘‘½ĞìØÌğ½‘¥Øø(€€€€ñ‘¥ØÍÑå±”ô‰µ…É¥¸µÑ½ÀèÙÁàˆ‘…Ñ„µ¤Äá¸ô‰™½½Ñ•É}¹½Ñ”ˆû‚’³‚–‚’‚’øƒ‚’ã‚’‚’ã‚–7‚’W‚’Ã‚’Œ€™µ‘…Í ìƒ‚’ã‚’û‚’Ã‚’øƒ‚’‡‚–‚’‚’øƒ‚’‚’«‚’W‚–ƒ‚’³‚–7‚’Ã‚’û‚’'‚’s‚’ó‚’À€¡±½…±MÑ½É…”¤ƒ‚’»‚–‚’ƒ‚’ã‚–‚’Ôƒ‚’ç‚–/‚’“‚’øƒ‚’ç‚– °ƒ‚’W‚’ç‚–‚’ƒ‚’‚’«‚’Ë‚–/‚’„ƒ‚’£‚’ç‚–‚’ƒ‚’ç‚–/‚’“‚’û‚–ƒ‚’W‚–/‚’ ƒ‚’‚’ã‚’Ë‚– ƒ‚’«‚–‚’»‚–‚’‚’|ƒ‚’£‚’ç‚–‚’ƒ‚’ç‚–/‚’“‚’û‚–ğ½‘¥Øø(€€ğ½‘¥Øø(ğ½™½½Ñ•Èø((ñÍÉ¥ÁĞÍÉŒô‰…ÁÀ¹©Ìˆøğ½ÍÉ¥ÁĞø(ğ½‰½‘äø(ğ½¡Ñµ°ø
+          <label data-i18n="f_city">à¤¶à¤¹à¤°</label>
+          <input id="in-city" type="text" maxlength="30" data-i18n-ph="ph_city" placeholder="à¤œà¥ˆà¤¸à¥‡: à¤¬à¤¾à¤‚à¤¦à¤¾">
+          <div class="err" data-i18n="err_city">à¤¶à¤¹à¤° à¤²à¤¿à¤–à¤¨à¤¾ à¤œà¤¼à¤°à¥‚à¤°à¥€ à¤¹à¥ˆ</div>
+        </div>
+        <div class="field" id="f-phone">
+          <label data-i18n="f_phone">à¤¦à¥à¤•à¤¾à¤¨ à¤•à¤¾ à¤«à¤¼à¥‹à¤¨ (à¤¸à¤¿à¤°à¥à¤«à¤¼ Belivery à¤¦à¥‡à¤–à¥‡à¤—à¥€)</label>
+          <input id="in-phone" type="tel" maxlength="10" inputmode="numeric" data-i18n-ph="ph_phone" placeholder="10 à¤…à¤‚à¤• à¤•à¤¾ à¤®à¥‹à¤¬à¤¾à¤‡à¤² à¤¨à¤‚à¤¬à¤°">
+          <div class="err" data-i18n="err_phone">10 à¤…à¤‚à¤• à¤•à¤¾ à¤¸à¤¹à¥€ à¤®à¥‹à¤¬à¤¾à¤‡à¤² à¤¨à¤‚à¤¬à¤° à¤²à¤¿à¤–à¥‡à¤‚</div>
+        </div>
+        <div class="field">
+          <label data-i18n-html="f_photo">à¤«à¤¼à¥‹à¤Ÿà¥‹ <small>&mdash; à¤†à¤‡à¤•à¤¨ à¤šà¥à¤¨à¥‡à¤‚</small></label>
+          <div class="emoji-pick" id="emojiPick"></div>
+        </div>
+        <div class="field" id="f-desc">
+          <label data-i18n-html="f_desc">à¤µà¤¿à¤µà¤°à¤£ <small>(à¤µà¥ˆà¤•à¤²à¥à¤ªà¤¿à¤•)</small></label>
+          <textarea id="in-desc" maxlength="300" data-i18n-ph="ph_desc" placeholder="à¤ªà¥à¤°à¥‹à¤¡à¤•à¥à¤Ÿ à¤•à¥‡ à¤¬à¤¾à¤°à¥‡ à¤®à¥‡à¤‚ à¤•à¥à¤› à¤²à¤¿à¤–à¥‡à¤‚â€¦"></textarea>
+        </div>
+        <button type="submit" class="submit-btn" data-i18n="submit">à¤²à¤¿à¤¸à¥à¤Ÿ à¤•à¤°à¥‡à¤‚ &mdash; à¤®à¥à¤«à¤¼à¥à¤¤</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MY ADS ================= -->
+<section class="view" id="view-ads">
+  <div class="wrap">
+    <div class="section-label"><span data-i18n="my_listings">à¤®à¥‡à¤°à¥€ à¤²à¤¿à¤¸à¥à¤Ÿà¤¿à¤‚à¤—</span></div>
+    <div id="myAdsList"></div>
+  </div>
+</section>
+
+<!-- ================= ORDERS ================= -->
+<section class="view" id="view-orders">
+  <div class="wrap">
+    <div class="section-label"><span data-i18n="my_orders">à¤®à¥‡à¤°à¥‡ à¤‘à¤°à¥à¤¡à¤°</span></div>
+    <div id="ordersList"></div>
+  </div>
+</section>
+
+<nav class="bottom">
+  <div class="nav-inner">
+    <button class="nav-btn active" data-nav="browse" onclick="go('browse')">
+      <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg>
+      <span data-i18n="nav_browse">à¤¬à¥à¤°à¤¾à¤‰à¤œà¤¼</span>
+    </button>
+    <button class="nav-btn" data-nav="sell" onclick="go('sell')">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>
+      <span data-i18n="nav_sell">à¤¬à¥‡à¤šà¥‡à¤‚</span>
+    </button>
+    <button class="nav-btn" data-nav="ads" onclick="go('ads')">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h5"/></svg>
+      <span data-i18n="nav_ads">à¤®à¥‡à¤°à¥‡ à¤µà¤¿à¤œà¥à¤à¤¾à¤ªà¤¨</span>
+    </button>
+    <button class="nav-btn" data-nav="orders" onclick="go('orders')">
+      <svg viewBox="0 0 24 24"><path d="M6 2 4 6v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6l-2-4z"/><path d="M4 6h16M16 10a4 4 0 0 1-8 0"/></svg>
+      <span data-i18n="nav_orders">à¤‘à¤°à¥à¤¡à¤°</span>
+    </button>
+  </div>
+</nav>
+
+
+<!-- ============ menu drawer (v5.4) ============ -->
+<div class="menu-overlay" id="menuOverlay" onclick="if(event.target===this)closeMenu()"></div>
+<aside class="menu-drawer" id="menuDrawer">
+  <div class="menu-head">
+    <div class="m-logo"><span class="b1">be</span>liv<span class="b1">ery</span><sup style="font-size:9px;font-weight:600">&trade;</sup></div>
+    <button class="menu-close" onclick="closeMenu()" aria-label="Close menu">&times;</button>
+  </div>
+  <div class="menu-list">
+    <button class="menu-item" onclick="menuGo('browse')"><span class="mi">ğŸ </span><span data-i18n="menu_home">à¤¹à¥‹à¤®</span></button>
+    <button class="menu-item" onclick="menuGo('sell')"><span class="mi">â•</span><span data-i18n="menu_sell">à¤¨à¤ˆ à¤²à¤¿à¤¸à¥à¤Ÿà¤¿à¤‚à¤— à¤¬à¤¨à¤¾à¤à¤</span></button>
+    <button class="menu-item" onclick="menuGo('ads')"><span class="mi">ğŸ“¢</span><span data-i18n="menu_ads">à¤®à¥‡à¤°à¥‡ à¤µà¤¿à¤œà¥à¤à¤¾à¤ªà¤¨</span></button>
+    <button class="menu-item" onclick="menuGo('orders')"><span class="mi">ğŸ›’</span><span data-i18n="menu_orders">à¤®à¥‡à¤°à¥‡ à¤‘à¤°à¥à¤¡à¤°</span></button>
+    <div class="menu-sep"></div>
+    <button class="menu-item" onclick="openAbout()"><span class="mi">â„¹ï¸</span><span data-i18n="menu_about">Belivery à¤•à¥‡ à¤¬à¤¾à¤°à¥‡ à¤®à¥‡à¤‚</span></button>
+    <button class="menu-item" onclick="contactBelivery()"><span class="mi">ğŸ“</span><span data-i18n="menu_contact">à¤¸à¤‚à¤ªà¤°à¥à¤• à¤•à¤°à¥‡à¤‚</span></button>
+    <button class="menu-item" onclick="menuInstall()"><span class="mi">ğŸ“²</span><span data-i18n="menu_install">à¤à¤ª à¤‡à¤‚à¤¸à¥à¤Ÿà¥‰à¤² à¤•à¤°à¥‡à¤‚</span></button>
+    <button class="menu-item" onclick="shareBelivery()"><span class="mi">ğŸ”—</span><span data-i18n="menu_share">à¤¶à¥‡à¤¯à¤° à¤•à¤°à¥‡à¤‚</span></button>
+    <div class="menu-sep"></div>
+    <button class="menu-item" onclick="toggleLang();closeMenu()"><span class="mi">ğŸ”¤</span><span data-i18n="menu_lang">à¤­à¤¾à¤·à¤¾ à¤¬à¤¦à¤²à¥‡à¤‚</span><span class="ma">EN / à¤¹à¤¿à¤‚</span></button>
+  </div>
+  <div class="menu-foot" data-i18n="foot_mono">belivery&trade; &middot; v5.4</div>
+</aside>
+
+<!-- product detail sheet -->
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeSheet()">
+  <div class="sheet" id="sheet"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Belivery AI assistant floating button (v5.2) -->
+<button class="ai-fab" id="aiFab" onclick="openAI()" aria-label="Belivery AI Assistant">
+  <svg viewBox="0 0 24 24"><path d="M12 2l1.9 5.7L19.6 9.6l-4.4 3.9 1.1 5.9L12 16.6l-4.3 2.8 1.1-5.9-4.4-3.9 5.7-1.9L12 2zm7 3.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
+  <span>AI</span>
+</button>
+
+
+<footer class="pagefoot">
+  <div class="wrap">
+    <div class="mono" data-i18n="foot_mono">belivery&trade; &middot; v3</div>
+    <div style="margin-top:6px" data-i18n="footer_note">à¤¬à¥€à¤Ÿà¤¾ à¤¸à¤‚à¤¸à¥à¤•à¤°à¤£ &mdash; à¤¸à¤¾à¤°à¤¾ à¤¡à¥‡à¤Ÿà¤¾ à¤†à¤ªà¤•à¥‡ à¤¬à¥à¤°à¤¾à¤‰à¤œà¤¼à¤° (localStorage) à¤®à¥‡à¤‚ à¤¸à¥‡à¤µ à¤¹à¥‹à¤¤à¤¾ à¤¹à¥ˆ, à¤•à¤¹à¥€à¤‚ à¤…à¤ªà¤²à¥‹à¤¡ à¤¨à¤¹à¥€à¤‚ à¤¹à¥‹à¤¤à¤¾à¥¤ à¤•à¥‹à¤ˆ à¤…à¤¸à¤²à¥€ à¤ªà¥‡à¤®à¥‡à¤‚à¤Ÿ à¤¨à¤¹à¥€à¤‚ à¤¹à¥‹à¤¤à¤¾à¥¤</div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
